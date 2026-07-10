@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Guru</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-tabs">
+        <button onclick="window.location.href = 'login-siswa.html'">
+          Siswa
+        </button>
+        <button class="active">Guru</button>
+      </div>
+
+      <h2>Login Guru</h2>
+      <form action="dashboard-guru.html" method="post">
+        <label for="nip">NIP</label>
+        <input
+          type="text"
+          id="nip"
+          name="nip"
+          placeholder="Masukkan NIP"
+          required
+        />
+
+        <label for="password">Kata Sandi</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Masukkan kata sandi"
+          required
+        />
+
+        <button type="submit">Masuk</button>
+      </form>
+    </div>
+  </body>
+</html>

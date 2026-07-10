@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Hadir Siswa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+  <nav class="bg-white border-b shadow-sm fixed top-0 w-full">
+        <div class="w-full px-4 flex justify-between items-center h-16">
+            <div class="flex items-center space-x-4">
+                <img src="screencapture-bcassetcdn-shapes-prod-117d1983-c4f6-445e-9aa6-d894cc9607ca-svg-2025-09-24-17_59_28 (1).png" alt="Logo" class="w-12">
+                <a href="Dashboard-siswa.html" class="text-gray-700 text-xl lg:text-base hover:text-blue-600">Dasbor</a>
+                <a href="Kursusku-siswa.html" class="text-gray-700 text-xl lg:text-base hover:text-blue-600">Kursusku</a>
+                <a href="DF-Siswa.html" class="text-gray-700 text-xl lg:text-base hover:text-blue-600 hidden md:block border-b-2 border-blue-600">Absensi</a>
+            </div>
+            <div class="flex items-center space-x-4 cursor-pointer" onclick="window.location.href='Login-Siswa.html'">
+                <span class="text-white p-2 rounded-full" style="background: linear-gradient(to bottom right, green, blue);">MR</span>
+        </div>
+    </nav>
+  <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-lg mt-12">
+    <h1 class="text-2xl font-bold mb-4 text-center">Daftar Hadir</h1>
+
+    <!-- History Section -->
+    <div class="space-y-4" id="attendanceList">
+      <div class="border rounded-lg p-4">
+        <p class="font-semibold text-gray-800">Jum'at, 19 September 2025</p>
+        <p class="text-yellow-600 font-medium">Status: Izin</p>
+      </div>
+      <div class="border rounded-lg p-4">
+        <p class="font-semibold text-gray-800">Selasa, 23 September 2025</p>
+        <p class="text-green-600 font-medium">Status: Hadir</p>
+      </div>
+      <div class="border rounded-lg p-4">
+        <p class="font-semibold text-gray-800">Kamis, 25 September 2025</p>
+        <p class="text-red-600 font-medium">Status: Sakit</p>
+      </div>
+      <div class="border rounded-lg p-4">
+        <p class="font-semibold text-gray-800">Senin, 29 September 2025</p>
+        <p class="text-green-600 font-medium">Status: Hadir</p>
+      </div>
+      <div class="border rounded-lg p-4">
+        <p class="font-semibold text-gray-800">Rabu, 1 Oktober 2025</p>
+        <p class="text-green-600 font-medium">Status: Hadir</p>
+      </div>
+
+      <div class="border rounded-lg p-4">
+        <p class="font-semibold text-gray-800">Jum'at, 3 Oktober 2025</p>
+        <p class="text-yellow-600 font-medium">Status: Izin</p>
+      </div>
+
+      <div class="border rounded-lg p-4 cursor-pointer" onclick="window.location.href='Absen-siswa.html'">
+        <p class="font-semibold text-gray-800">Selasa, 7 Oktober 2025</p>
+        <p class="text-red-600 font-medium">Status: </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

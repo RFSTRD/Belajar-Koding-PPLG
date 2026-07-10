@@ -1,0 +1,19 @@
+body {
+    font-family: arial;
+    margin: 0px;
+    padding: 0px;
+    background-color: black;
+}
+.navbar {
+    display: flex;
+    background-color: green;
+    justify-content: space-evenly;
+    color: white;
+}
+.navbar p {
+    background-color: darkgreen;
+    width: 15%;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+}

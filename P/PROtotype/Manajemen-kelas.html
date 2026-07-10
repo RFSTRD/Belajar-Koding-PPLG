@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Kelas</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hover-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .class-card {
+            transition: all 0.3s ease;
+        }
+        .student-avatar {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            color: white;
+        }
+        .tab-active {
+            border-bottom: 3px solid #3b82f6;
+            color: #3b82f6;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-gray-50" style="color: #333;">
+
+<nav class="bg-white border-b shadow-sm sticky top-0 z-10">
+        <div class="w-full px-4 flex justify-between items-center h-16">
+            <div class="flex items-center space-x-4">
+                <img src="screencapture-bcassetcdn-shapes-prod-117d1983-c4f6-445e-9aa6-d894cc9607ca-svg-2025-09-24-17_59_28 (1).png" alt="Logo" class="w-12">
+                <a href="Dashboard-Guru.html" class="text-gray-700 text-xl lg:text-base hover:text-blue-600">Dasbor</a>
+                <a href="Manajemen-kelas.html" class="text-gray-700 text-xl lg:text-base hover:text-blue-600 border-b-2 border-blue-600">Manajemen Kelas</a>
+                <a href="Absen-guru.html" class="text-gray-700 text-xl lg:text-base hover:text-blue-600 hidden md:block">Absensi</a>
+            </div>
+            <div class="flex items-center space-x-4 cursor-pointer" onclick="window.location.href='Login-Guru.html'">
+                <span class="text-white p-2 rounded-full" style="background: linear-gradient(to bottom left, red, yellow);">LM</span>
+        </div>
+    </nav>
+
+<main class="max-w-7xl mx-auto p-6">
+    <!-- Header dan Filter -->
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+        <div>
+            <h1 class="text-2xl font-semibold">Manajemen Kelas</h1>
+            <p class="text-gray-600 mt-1">Kelola kelas, siswa, dan materi pembelajaran</p>
+        </div>
+        <div class="flex flex-wrap gap-3 mt-4 md:mt-0">
+            <select class="border rounded p-2 text-sm focus:ring focus:ring-blue-300 outline-none transition">
+                <option>Semua Mata Pelajaran</option>
+                <option>Matematika</option>
+                <option>Fisika</option>
+                <option>Kimia</option>
+                <option>Biologi</option>
+                <option>Bahasa Indonesia</option>
+                <option>Bahasa Inggris</option>
+            </select>
+            <select class="border rounded p-2 text-sm focus:ring focus:ring-blue-300 outline-none transition">
+                <option>Semua Kelas</option>
+                <option>Kelas 10</option>
+                <option>Kelas 11</option>
+                <option>Kelas 12</option>
+            </select>
+            <dialog id="dialog1" class="border border-black bg-white rounded w-full max-w-sm px-2">
+                <h1 class="font-bold text-center text-2xl border-b border-gray-400 pb-4">Kelas Baru</h1>
+                <p class="my-2">Nama Kelas<input type="text" class="border focus:ring-none focus:shadow-lg outline-none border-gray-400 py-1 px-2 rounded-xl w-full transition"></p>
+                <p class="my-2">Nama Guru<input type="text" class="border focus:ring-none focus:shadow-lg outline-none border-gray-400 py-1 px-2 rounded-xl w-full transition"></p>
+                <p class="my-2">deskripsi<textarea class="border focus:ring-none focus:shadow-lg outline-none border-gray-400 h-100 py-1 px-2 rounded-xl w-full transition"></textarea></p>
+                <div>
+                    <button class="px-3 py-2 rounded bg-blue-500 text-white font-bold hover:bg-blue-700 hover:shadow-lg transition" onclick="dialog1.close()">Simpan</button>
+                    <button class="px-3 py-2 rounded ml-2 border hover:bg-gray-500 hover:text-white hover:shadow-lg transition" onclick="dialog1.close()">Batal</button>
+                </div>
+            </dialog>
+            <dialog id="dialog2" class="border border-black bg-white rounded w-full max-w-sm px-2">
+                <h1 class="font-bold text-center text-2xl border-b border-gray-400 pb-4">Tambah Siswa</h1>
+                <p class="my-2">Nama Siswa<input type="text" class="border focus:ring-none focus:shadow-lg outline-none border-gray-400 py-1 px-2 rounded-xl w-full transition"></p>
+                <p class="my-2">E-Mail<input type="email" class="border focus:ring-none focus:shadow-lg outline-none border-gray-400 py-1 px-2 rounded-xl w-full transition"></p>
+                <p class="my-2">Kelas<input type="text" class="border focus:ring-none focus:shadow-lg outline-none border-gray-400 py-1 px-2 rounded-xl w-full transition"></p>
+                <div>
+                    <button class="px-3 py-2 rounded bg-blue-500 text-white font-bold hover:bg-blue-700 hover:shadow-lg transition" onclick="dialog2.close()">Simpan</button>
+                    <button class="px-3 py-2 rounded ml-2 border hover:bg-gray-500 hover:text-white hover:shadow-lg transition" onclick="dialog2.close()">Batal</button>
+                </div>
+            </dialog>
+            <button class="bg-blue-600 text-white px-4 py-2 rounded text-sm flex items-center" onclick="dialog1.showModal()">
+                <i class="fas fa-plus mr-2"></i> Kelas Baru
+            </button>
+        </div>
+    </div>
+
+    <!-- Tabs Navigasi -->
+    <div class="border-b mb-6">
+        <div class="flex space-x-8">
+            <button class="pb-3 px-1 text-gray-600 hover:text-blue-600 tab-active">Semua Kelas</button>
+            <button class="pb-3 px-1 text-gray-600 hover:text-blue-600">Kelas Aktif</button>
+            <button class="pb-3 px-1 text-gray-600 hover:text-blue-600">Diarsipkan</button>
+        </div>
+    </div>
+
+    <!-- Statistik Cepat -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-600 text-sm">Total Kelas</p>
+                    <h3 class="text-2xl font-bold mt-2">8</h3>
+                </div>
+                <div class="bg-blue-100 p-3 rounded-full">
+                    <i class="fas fa-chalkboard-teacher text-blue-600"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-600 text-sm">Total Siswa</p>
+                    <h3 class="text-2xl font-bold mt-2">142</h3>
+                </div>
+                <div class="bg-green-100 p-3 rounded-full">
+                    <i class="fas fa-users text-green-600"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-600 text-sm">Tugas Aktif</p>
+                    <h3 class="text-2xl font-bold mt-2">15</h3>
+                </div>
+                <div class="bg-yellow-100 p-3 rounded-full">
+                    <i class="fas fa-tasks text-yellow-600"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-600 text-sm">Rata-rata Kehadiran</p>
+                    <h3 class="text-2xl font-bold mt-2">87%</h3>
+                </div>
+                <div class="bg-purple-100 p-3 rounded-full">
+                    <i class="fas fa-user-check text-purple-600"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Daftar Kelas -->
+    <section class="bg-white rounded-lg shadow-sm p-6 mb-8">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-lg font-medium">Daftar Kelas</h2>
+            <div class="flex space-x-2">
+                <button class="border rounded p-2 text-sm hover:bg-gray-50">
+                    <i class="fas fa-filter"></i>
+                </button>
+                <button class="border rounded p-2 text-sm hover:bg-gray-50">
+                    <i class="fas fa-sort"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Kelas -->
+            <div class="border rounded-lg class-card hover-card">
+                <div class="p-5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="font-bold text-lg">Matematika - Kelas 11A</h3>
+                            <p class="text-gray-600 text-sm mt-1">Aljabar & Trigonometri</p>
+                        </div>
+                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Aktif</span>
+                    </div>
+                    
+                    <div class="flex items-center text-gray-600 text-sm mb-4">
+                        <i class="fas fa-users mr-2"></i>
+                        <span>24 Siswa</span>
+                    </div>
+                    
+                    <div class="flex -space-x-2 mb-4">
+                        <div class="student-avatar bg-blue-500">AR</div>
+                        <div class="student-avatar bg-green-500">BS</div>
+                        <div class="student-avatar bg-yellow-500">CD</div>
+                        <div class="student-avatar bg-purple-500">EF</div>
+                        <div class="student-avatar bg-pink-500 text-xs">+20</div>
+                    </div>
+                    
+                    <div class="flex justify-between text-sm text-gray-600 mb-4">
+                        <div>
+                            <i class="fas fa-tasks mr-1"></i>
+                            <span>12 Tugas Aktif</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-comment mr-1"></i>
+                            <span>5 Diskusi</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-2">
+                        <button class="flex-1 bg-blue-600 text-white py-2 rounded text-sm hover:bg-blue-700 transition">
+                            Masuk Kelas
+                        </button>
+                        <button class="border rounded p-2 text-sm hover:bg-gray-50">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border rounded-lg class-card hover-card">
+                <div class="p-5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="font-bold text-lg">Fisika - Kelas 11B</h3>
+                            <p class="text-gray-600 text-sm mt-1">Kinematika & Dinamika</p>
+                        </div>
+                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Aktif</span>
+                    </div>
+                    
+                    <div class="flex items-center text-gray-600 text-sm mb-4">
+                        <i class="fas fa-users mr-2"></i>
+                        <span>22 Siswa</span>
+                    </div>
+                    
+                    <div class="flex -space-x-2 mb-4">
+                        <div class="student-avatar bg-red-500">GH</div>
+                        <div class="student-avatar bg-indigo-500">IJ</div>
+                        <div class="student-avatar bg-green-500">KL</div>
+                        <div class="student-avatar bg-blue-500">MN</div>
+                        <div class="student-avatar bg-gray-500 text-xs">+18</div>
+                    </div>
+                    
+                    <div class="flex justify-between text-sm text-gray-600 mb-4">
+                        <div>
+                            <i class="fas fa-tasks mr-1"></i>
+                            <span>8 Tugas Aktif</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-comment mr-1"></i>
+                            <span>4 Diskusi</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-2">
+                        <button class="flex-1 bg-blue-600 text-white py-2 rounded text-sm hover:bg-blue-700 transition">
+                            Masuk Kelas
+                        </button>
+                        <button class="border rounded p-2 text-sm hover:bg-gray-50">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border rounded-lg class-card hover-card">
+                <div class="p-5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="font-bold text-lg">Kimia - Kelas 11C</h3>
+                            <p class="text-gray-600 text-sm mt-1">Stoikiometri & Termokimia</p>
+                        </div>
+                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Aktif</span>
+                    </div>
+                    
+                    <div class="flex items-center text-gray-600 text-sm mb-4">
+                        <i class="fas fa-users mr-2"></i>
+                        <span>20 Siswa</span>
+                    </div>
+                    
+                    <div class="flex -space-x-2 mb-4">
+                        <div class="student-avatar bg-blue-500">AR</div>
+                        <div class="student-avatar bg-green-500">BS</div>
+                        <div class="student-avatar bg-yellow-500">CD</div>
+                        <div class="student-avatar bg-purple-500">EF</div>
+                        <div class="student-avatar bg-pink-500 text-xs">+20</div>
+                    </div>
+                    
+                    <div class="flex justify-between text-sm text-gray-600 mb-4">
+                        <div>
+                            <i class="fas fa-tasks mr-1"></i>
+                            <span>3 Tugas Aktif</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-comment mr-1"></i>
+                            <span>1 Diskusi</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-2">
+                        <button class="flex-1 bg-blue-600 text-white py-2 rounded text-sm hover:bg-blue-700 transition">
+                            Masuk Kelas
+                        </button>
+                        <button class="border rounded p-2 text-sm hover:bg-gray-50">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daftar Siswa -->
+    <section class="bg-white rounded-lg shadow-sm p-6">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-lg font-medium">Daftar Siswa</h2>
+            <div class="flex space-x-2">
+                <input type="text" placeholder="Cari siswa..." class="border rounded p-2 text-sm w-64">
+                <button class="bg-blue-600 text-white px-4 py-2 rounded text-sm flex items-center" onclick="dialog2.showModal()">
+                    <i class="fas fa-user-plus mr-2"></i> Tambah Siswa
+                </button>
+            </div>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full border-collapse">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="p-3 text-left text-sm font-medium">Nama Siswa</th>
+                        <th class="p-3 text-left text-sm font-medium">Kelas</th>
+                        <th class="p-3 text-left text-sm font-medium">Kehadiran</th>
+                        <th class="p-3 text-left text-sm font-medium">Tugas Selesai</th>
+                        <th class="p-3 text-left text-sm font-medium">Rata-rata Nilai</th>
+                        <th class="p-3 text-left text-sm font-medium">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="p-3">
+                            <div class="flex items-center">
+                                <div class="student-avatar bg-blue-500 mr-3">AR</div>
+                                <div>
+                                    <p class="font-medium">Ahmad Rizki</p>
+                                    <p class="text-gray-600 text-sm">ahmad.rizki@email.com</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-3">10A - Matematika</td>
+                        <td class="p-3">
+                            <div class="flex items-center">
+                                <span class="text-green-600 mr-2">95%</span>
+                                <div class="w-16 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-green-600 h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-3">12/15</td>
+                        <td class="p-3">
+                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">88.5</span>
+                        </td>
+                        <td class="p-3">
+                            <button class="text-blue-600 hover:text-blue-800 mr-3">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="p-3">
+                            <div class="flex items-center">
+                                <div class="student-avatar bg-green-500 mr-3">BS</div>
+                                <div>
+                                    <p class="font-medium">Budi Santoso</p>
+                                    <p class="text-gray-600 text-sm">budi.santoso@email.com</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-3">10A - Matematika</td>
+                        <td class="p-3">
+                            <div class="flex items-center">
+                                <span class="text-yellow-600 mr-2">78%</span>
+                                <div class="w-16 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-yellow-600 h-2 rounded-full" style="width: 78%"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-3">10/15</td>
+                        <td class="p-3">
+                            <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">75.2</span>
+                        </td>
+                        <td class="p-3">
+                            <button class="text-blue-600 hover:text-blue-800 mr-3">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="p-3">
+                            <div class="flex items-center">
+                                <div class="student-avatar bg-purple-500 mr-3">CD</div>
+                                <div>
+                                    <p class="font-medium">Citra Dewi</p>
+                                    <p class="text-gray-600 text-sm">citra.dewi@email.com</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-3">11B - Fisika</td>
+                        <td class="p-3">
+                            <div class="flex items-center">
+                                <span class="text-green-600 mr-2">92%</span>
+                                <div class="w-16 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-green-600 h-2 rounded-full" style="width: 92%"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-3">14/16</td>
+                        <td class="p-3">
+                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">90.1</span>
+                        </td>
+                        <td class="p-3">
+                            <button class="text-blue-600 hover:text-blue-800 mr-3">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-between items-center mt-6">
+            <p class="text-gray-600 text-sm">Menampilkan 1-10 dari 142 siswa</p>
+            <div class="flex space-x-2">
+                <button class="border rounded p-2 text-sm hover:bg-gray-50">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="border rounded p-2 text-sm bg-blue-600 text-white">1</button>
+                <button class="border rounded p-2 text-sm hover:bg-gray-50">2</button>
+                <button class="border rounded p-2 text-sm hover:bg-gray-50">3</button>
+                <button class="border rounded p-2 text-sm hover:bg-gray-50">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+    // Fungsi untuk mengaktifkan tab
+    document.querySelectorAll('.border-b button').forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Hapus kelas aktif dari semua tab
+            document.querySelectorAll('.border-b button').forEach(t => {
+                t.classList.remove('tab-active');
+                t.classList.add('text-gray-600');
+            });
+            
+            // Tambahkan kelas aktif ke tab yang diklik
+            this.classList.add('tab-active');
+            this.classList.remove('text-gray-600');
+        });
+    });
+    
+    // Animasi hover untuk kartu kelas
+    document.querySelectorAll('.class-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.classList.add('shadow-md');
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.classList.remove('shadow-md');
+        });
+    });
+</script>
+
+</body>
+</html>

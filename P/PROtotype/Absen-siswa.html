@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Absen Siswa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <nav class="bg-white border-b shadow-sm fixed w-full top-0">
+        <div class="w-full px-4 flex justify-between items-center h-16">
+            <div class="flex items-center space-x-4">
+                <img src="screencapture-bcassetcdn-shapes-prod-117d1983-c4f6-445e-9aa6-d894cc9607ca-svg-2025-09-24-17_59_28 (1).png" alt="Logo" class="w-12">
+                <a href="Dashboard-siswa.html" class="text-gray-700 text-xl lg:text-base hover:text-blue-600">Dasbor</a>
+                <a href="Kursusku-siswa.html" class="text-gray-700 text-xl lg:text-base hover:text-blue-600">Kursusku</a>
+                <a href="DF-Siswa.html" class="text-gray-700 text-xl lg:text-base hover:text-blue-600 border-b-2 border-blue-600 hidden md:block">Absensi</a>
+            </div>
+            <div class="flex items-center space-x-4 cursor-pointer" onclick="window.location.href='Login-Siswa.html'">
+                <span class="text-white p-2 rounded-full" style="background: linear-gradient(to bottom right, green, blue);">MR</span>
+        </div>
+    </nav>
+
+  <div class="bg-white pt-4 pl-8 pr-8 rounded-2xl shadow-lg w-full max-w-lg text-center">
+    <h2 class="text-2xl font-bold mb-4">Absensi Siswa</h2>
+    <p class="text-gray-600 mb-6">Pilih status kehadiranmu hari ini:</p>
+
+    <form id="absenForm" class="space-y-4">
+      <div class="flex justify-around">
+        <label class="flex items-center space-x-2">
+          <input type="radio" name="status" value="Hadir" class="text-blue-600" required>
+          <span>Hadir</span>
+        </label>
+        <label class="flex items-center space-x-2">
+          <input type="radio" name="status" value="Izin" class="text-blue-600">
+          <span>Izin</span>
+        </label>
+        <label class="flex items-center space-x-2">
+          <input type="radio" name="status" value="Sakit" class="text-blue-600">
+          <span>Sakit</span>
+        </label>
+      </div>
+
+      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Kirim</button>
+    </form>
+
+    <p id="absenResult" class="mt-4 text-green-600 font-semibold cursor-pointer" onclick="window.location.href='DF-Siswa.html'"></p>
+  </div>
+
+  <script>
+    document.getElementById("absenForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const status = document.querySelector('input[name="status"]:checked').value;
+      document.getElementById("absenResult").textContent = `Kehadiran dikirim: ${status}`;
+    });
+  </script>
+</body>
+</html>

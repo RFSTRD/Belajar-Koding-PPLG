@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buat Absensi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <nav class="bg-white border-b shadow-sm fixed top-0 w-full">
+        <div class="w-full px-4 flex justify-between items-center h-16">
+            <div class="flex items-center space-x-4">
+                <img src="screencapture-bcassetcdn-shapes-prod-117d1983-c4f6-445e-9aa6-d894cc9607ca-svg-2025-09-24-17_59_28 (1).png" alt="Logo" class="w-12">
+                <a href="Dashboard-Guru.html" class="text-gray-700 text-xl lg:text-base hover:text-blue-600">Dasbor</a>
+                <a href="Manajemen-kelas.html" class="text-gray-700 text-xl lg:text-base hover:text-blue-600">Manajemen Kelas</a>
+                <a href="Absen-guru.html" class="text-gray-700 text-xl lg:text-base hover:text-blue-600 border-b-2 border-blue-600 hidden md:block">Absensi</a>
+            </div>
+            <div class="flex items-center space-x-4 cursor-pointer" onclick="window.location.href='Login-Guru.html'">
+                <span class="text-white p-2 rounded-full" style="background: linear-gradient(to bottom left, red, yellow);">LM</span>
+        </div>
+    </nav>
+  <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-lg m-1">
+    <h2 class="text-2xl font-bold mb-4 text-center">Buat Jadwal Absensi</h2>
+    <p class="text-gray-600 mb-6 text-center">Tentukan tanggal dan waktu absensi siswa.</p>
+
+    <!-- Absence creation form -->
+    <form id="buatAbsenForm" class="space-y-4">
+      <div>
+        <label class="block mb-1 font-medium">Tanggal</label>
+        <input type="date" id="tanggal" class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none" required>
+      </div>
+
+      <div>
+        <label class="block mb-1 font-medium">Waktu Mulai</label>
+        <input type="time" id="mulai" class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none" required>
+      </div>
+
+      <div>
+        <label class="block mb-1 font-medium">Batas Waktu</label>
+        <input type="time" id="deadline" class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none" required>
+      </div>
+
+      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Buat Absensi</button>
+    </form>
+
+    <p id="buatAbsenResult" class="mt-4 text-green-600 font-semibold text-center"></p>
+
+    <!-- Attendance List -->
+    <div class="mt-8">
+      <h3 class="text-lg font-semibold mb-3">Daftar Absensi</h3>
+      <div id="absensiList" class="space-y-4">
+        <!-- Dynamic list items will appear here -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("buatAbsenForm");
+    const result = document.getElementById("buatAbsenResult");
+    const list = document.getElementById("absensiList");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const t = document.getElementById("tanggal").value;
+      const m = document.getElementById("mulai").value;
+      const d = document.getElementById("deadline").value;
+
+      // Display confirmation
+      result.textContent = `Absensi dibuat: ${t}, ${m} - ${d}`;
+
+      // Add new record below
+      const entry = document.createElement("div");
+      entry.className = "border rounded-lg p-4";
+      entry.innerHTML = `
+        <p class="font-semibold text-gray-800">Tanggal: ${t}</p>
+        <p class="text-gray-600">Waktu: ${m} - ${d}</p>
+      `;
+      list.appendChild(entry);
+
+      // Reset form
+      form.reset();
+    });
+  </script>
+</body>
+</html>

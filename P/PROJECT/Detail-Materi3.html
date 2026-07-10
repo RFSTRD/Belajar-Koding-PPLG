@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Materi</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/171/171322.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            min-height: 100vh;
+            font-family: "Poppins", sans-serif;
+            background-color: black;
+            opacity: 0;
+            transition: opacity 3600s ease;
+        }
+        body:hover {
+            opacity: 1;
+            transition: opacity 1s linear;
+        }
+        nav {
+            background-color: hsl(0, 0%, 10%);
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+        nav ul {
+            width: 100%;
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        nav li {
+            height: 50px;
+        }
+        nav a {
+            height: 100%;
+            padding: 0 10px;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: black;
+        }
+        nav li:first-child {
+            margin-right: auto;
+        }
+        nav i:first-child {
+            margin-inline: 5px;
+        }
+        nav li:nth-child(2) {
+            display: none;
+        }
+        @media screen and (max-width:691px) {
+            nav ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            nav li:not(:first-child):not(:nth-child(2)) {
+                width: 100%;
+                opacity: 0;
+                max-height: 0;
+                overflow: hidden;
+            }
+            nav li:nth-child(2) {
+                display: block;
+                right: 0;
+                top: 0;
+                position: fixed;
+                background: transparent;
+                backdrop-filter: blur(10px);
+                border: 2px solid rgba(0, 0, 0, 0.2);
+                border-radius: 10px;
+                height: 45px;
+            }
+            nav li:not(:first-child):not(:nth-child(2)).show {
+                opacity: 1;
+                max-height: inherit;
+            }
+            nav a:active {
+                background-color: gray;
+            }
+            body {
+                opacity: 1;
+            }
+        }
+        .Materi {
+            min-height: 100vh;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background: url("https://asset.kompas.com/crops/Iw9g-f2Y0ACKeapanxHa1ZoyP1k=/1x285:857x856/1200x800/data/photo/2021/07/28/6101602531779.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            filter: grayscale();
+        }
+        .Materi button {
+            border: none;
+            width: 10vh;
+            height: 10vh;
+            background: transparent;
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, .2);
+            cursor: pointer;
+            color: white;
+            transition: background 1s ease;
+        }
+        .Materi button:hover {
+            background-color: black;
+            transition: background-color 1s ease;
+        }
+        .container {
+            width: 75vh;
+            height: fit-content;
+            background: transparent;
+            color: white;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, .2);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 1%;
+        }
+        footer {
+            background: linear-gradient(to top, black, transparent);
+            color: white;
+            position: fixed;
+            bottom: 0;
+            padding: 1%;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="Beranda.html"><i class="fa fa-globe"></i>SEJARAH KERAJAAN SINGASARI</a></li>
+            <li onclick="buka()"><a href="#"><h1><i class="fa fa-bars"></i></h1></a></li>
+            <li><a href="Beranda.html">Materi</a></li>
+            <li><a href="Beranda.html">Tentang</a></li>
+            <li><a href="Beranda.html">Kontak</a></li>
+            <li><a href="Beranda.html">Video</a></li>
+        </ul>
+    </nav>
+
+    <div class="Materi">
+        <div class="Arrow"><a href="Detail-Materi2.html"><button><h1><</h1></button></div></a>
+        <div class="container">
+            <h3>Materi #3</h3>
+            <h4>3. Penolakan Terhadap Utusan Mongol:</h4>
+            <p>Pada tahun 1289, Kubilai Khan, Kaisar Mongol, mengirim utusan ke Singasari untuk meminta Kertanegara mengakui kedaulatan Mongol atas Jawa. Namun, Kertanegara menolak permintaan tersebut dengan tegas dan bahkan melukai utusan Mongol sebagai simbol penolakan. Tindakan ini memicu kemarahan Mongol, yang kemudian merencanakan serangan balasan terhadap Singasari. Meskipun ancaman Mongol semakin dekat, Kertanegara tetap fokus pada ekspansi luar negeri, yang akhirnya melemahkan pertahanan internal kerajaan.</p>
+        </div>
+        <div class="Arrow"><a href="Detail-Materi4.html"><button><h1>></h1></button></div></a>
+    </div>
+
+    <footer>
+        <p><i class="fa fa-envelope"></i> @rafiastiardi7@gmail.com</p>
+    </footer>
+</body>
+<script>
+    function buka() {
+        const menuItems = document.querySelectorAll('nav li:not(:first-child):not(:nth-child(2))');
+        menuItems.forEach(item => {
+            item.classList.toggle('show');
+        })
+    }
+</script>
+</html>

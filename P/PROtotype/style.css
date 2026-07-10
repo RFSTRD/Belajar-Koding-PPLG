@@ -1,0 +1,108 @@
+/* spesifik ke Login dan absen */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(screencapture-bcassetcdn-shapes-prod-117d1983-c4f6-445e-9aa6-d894cc9607ca-svg-2025-09-24-17_59_28\ \(1\).png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.login-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    padding: 30px 30px 15px;
+    border-radius: 16px;
+    width: 350px;
+    text-align: center;
+    transition: box-shadow 0.5s, scale 0.5s, border 0.3s;
+    border: 1px solid gold;
+}
+.login-container:hover {
+    box-shadow: 0 0 20px 5px gold;
+    scale: 101%;
+    border: 0px solid gold;
+}
+
+.login-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.login-tabs button {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid gold;
+    background: black;
+    color: gold;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: 8px;
+    margin: 1px;
+}
+
+.login-tabs button.active {
+    background: gold;
+    color: white;
+    font-weight: bold;
+}
+
+h2 {
+    margin: 0.5rem;
+    color: gold;
+    text-shadow:1px 1px 5px gold;
+    margin-bottom: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: gold;
+}
+
+label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid gold;
+    outline: none;
+    margin-top: 5px;
+    background-color: black;
+    color: white;
+    transition: scale 0.5s;
+}
+input:focus {
+    scale: 101%;
+    border: 2px solid gold;
+}
+input::placeholder {
+    color: rgba(255, 215, 0, 0.5);
+}
+
+button[type="submit"] {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 100vh;
+    border: none;
+    background: black;
+    border: 1px solid gold;
+    color: gold;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.5s, scale 0.5s;
+}
+button[type="submit"]:hover {
+    background-color: gold;
+    color: white;
+    border: 0px solid gold;
+    scale: 102%;
+}

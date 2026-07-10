@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Slideshow Edukasi Interaktif</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    /* Tema Warna */
+    body {
+      background-color: #e6f0ff;
+    }
+    .carousel-caption {
+      animation: fadeInUp 1s ease-in-out;
+    }
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* Efek Transisi Fade */
+    .carousel-item {
+      transition: opacity 1.5s ease-in-out;
+    }
+    /* Tombol Play/Pause */
+    .control-btn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      z-index: 10;
+    }
+    img {
+      width: 100%;
+      height: calc(89vh + 3px);
+    }
+    header {
+      text-align: center;
+      color: white;
+      background: linear-gradient(to right, darkblue, lightblue);
+      padding: 10px;
+    }
+    .video {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(89vh + 3px);
+    }
+  </style>
+</head>
+<body>
+<header><h1>Pemrograman Junior</h1></header>
+<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <!-- Indikator Slide -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+  </div>
+
+  <!-- Konten Slide -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../img/html.jpg" class="d-block w-100" alt="Materi 1">
+      <div class="carousel-caption d-none d-md-block bg-primary bg-opacity-75 rounded p-3">
+        <h5>HTML</h5>
+        <p>HTML adalah singkatan dari Hypertext Markup Language, dan merupakan bahasa markup standar yang digunakan untuk membuat halaman web. HTML digunakan untuk memberikan struktur dan konten ke dalam sebuah halaman web, seperti teks, gambar, video, tautan, dan elemen lainnya yang ditampilkan di browser. </p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="../img/css.png" class="d-block w-100" alt="Materi 2">
+      <div class="carousel-caption d-none d-md-block bg-primary bg-opacity-75 rounded p-3">
+        <h5>CSS</h5>
+        <p>CSS adalah singkatan dari Cascading Style Sheets, sebuah bahasa yang digunakan untuk mengatur tampilan atau gaya dari halaman web yang dibuat dengan HTML atau XML. CSS menjelaskan bagaimana elemen-elemen pada halaman web harus ditampilkan di layar, di atas kertas, dalam ucapan, atau di media lainnya.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="../img/js.png" class="d-block w-100" alt="Materi 3">
+      <div class="carousel-caption d-none d-md-block bg-primary bg-opacity-75 rounded p-3">
+        <h5>JavaScript</h5>
+        <p>JavaScript adalah bahasa pemrograman tingkat tinggi yang sangat umum digunakan untuk membuat halaman web interaktif dan dinamis. Bahasa ini memungkinkan pengembang untuk menambahkan berbagai fitur seperti animasi, kontrol formulir, dan manipulasi konten HTML/CSS. </p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="video">
+        <iframe width="960" height="540" src="https://www.youtube.com/embed/LVZEy9sDM44"></iframe>
+      </div>
+      <div class="carousel-caption d-none d-md-block bg-primary bg-opacity-75 rounded p-3">
+        <h5>Video Pembelajaran</h5>
+        <p>Simak video singkat berikut untuk pemahaman lebih baik.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigasi -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Sebelumnya</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Berikutnya</span>
+  </button>
+
+  <!-- Tombol Play/Pause -->
+  <div class="control-btn">
+    <button id="toggleBtn" class="btn btn-warning btn-sm">Pause</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const carousel = document.querySelector('#carouselExampleIndicators');
+  const carouselInstance = bootstrap.Carousel.getOrCreateInstance(carousel);
+  const toggleBtn = document.getElementById('toggleBtn');
+
+  let isPaused = false;
+
+  toggleBtn.addEventListener('click', () => {
+    if (isPaused) {
+      carouselInstance.cycle();
+      toggleBtn.textContent = 'Pause';
+    } else {
+      carouselInstance.pause();
+      toggleBtn.textContent = 'Play';
+    }
+    isPaused = !isPaused;
+  });
+</script>
+
+</body>
+</html>

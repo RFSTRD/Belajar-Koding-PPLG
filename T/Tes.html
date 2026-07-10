@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Wireframe</title>
+    <style>
+        body{
+            font-family: arial;
+            background-color: #0f0f0f;
+        }
+        h1 {
+            padding: 10px;
+            text-align: center;
+            background-color: red;
+            color: white;
+            margin: 0px;
+        }
+        input[type="text"] {
+            background-color: #3f3f3f;
+            color: white;
+            width: 40%;
+            padding: 5px;
+            height: 20px;
+            border-radius: 50px;
+            background: transparent;
+            margin: 10px;
+            margin-left:125px;
+            float: left;
+            border: 2px solid #3f3f3f;
+        }
+        input[type="text"]:hover {
+            cursor: text;
+        }
+        header img {
+            height: 100px;
+            width: 100px;
+            margin-left:100px;
+            border-radius: 50px;
+        }
+        header button {
+            margin-top: 10px;
+            background-color: red;
+            color: white;
+            border-style: none;
+            border-radius: 5px;
+            padding: 5px;
+            width: 85px;
+            height: 30px;
+            margin: 10px 5px;
+        }
+        aside {
+            height: 100%;
+            width: 100px;
+            background-color: #1f1f1f;
+            padding: 10px;
+            position: absolute;
+            top: 172px;
+            left: 8px;
+            bottom: 0;
+            color: white;
+        }
+        aside button {
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: left;
+            background-color: red;
+            color: white;
+            border-style: none;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        aside h3 {
+            margin: auto;
+            font-size: medium;
+        }
+        aside .subscriptions ul {
+            list-style: circle;
+            padding: 0px;
+            margin: 10px;
+        }
+        .iklan {
+            text-align: center;
+            margin-left: 125px;
+            color: white;
+        }
+        .iklan img {
+            width: 400px;
+            height: 100px;
+        }
+        .rekomendasi {
+            margin-left: 125px;
+            color: white;
+        }
+        .videos {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .video-card {
+            height: 100px;
+            width: 200px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            background-color: #3f3f3f;
+        }
+        aside button:hover {
+            background-color: white;
+            color: red;
+            cursor: pointer;
+        }
+        header button:hover {
+            background-color: white;
+            color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Muhammad Rafi Astiardi <div class="logo"><img src="https://i.ytimg.com/vi/kPj_IeH6ZZE/maxresdefault.jpg" alt="YO"></div></h1>
+        <input type="text" placeholder="search...">
+        <nav>
+            <a href=""><button>Home</button></a>
+            <a href=""><button>Trending</button></a>
+            <a href=""><button>Subscription</button></a>
+            <a href=""><button>Upload</button></a>
+            <a href=""><button>Noti.</button></a>
+            <a href=""><button>Sett.</button></a>
+        </nav>
+    </header>
+    
+
+    <aside>
+        <button>Home</button>
+        <button>My Channel</button>
+        <button>Trending</button>
+        <button>Subscription</button>
+        <button>History</button>
+        <button>Watch Later</button>
+        <div class="subscriptions">
+            <h3>Subscriptions</h3>
+            <ul>
+                <li>Channel 1</li>
+                <li>Channel 2</li>
+                <li>Channel 3</li>
+            </ul>
+        </div>
+    </aside>
+
+    <div class="iklan">
+        <h2>Ad</h2>
+        <img src="https://i.ytimg.com/vi/kPj_IeH6ZZE/maxresdefault.jpg" alt="manface">
+    </div>
+
+    <section class="rekomendasi">
+        <h2>Recommended</h2>
+        <div class="videos">
+            <div class="video-card">Video 1</div>
+            <div class="video-card">Video 2</div>
+            <div class="video-card">Video 3</div>
+            <div class="video-card">Video 4</div>
+            <div class="video-card">Video 5</div>
+        </div>
+    </section>
+    <section class="rekomendasi">
+        <h2>Recently Uploaded</h2>
+        <div class="videos">
+            <div class="video-card">Video 1</div>
+            <div class="video-card">Video 2</div>
+            <div class="video-card">Video 3</div>
+            <div class="video-card">Video 4</div>
+            <div class="video-card">Video 5</div>
+        </div>
+    </section>
+</body>
+</html>

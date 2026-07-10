@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tailwind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        section {
+            background: linear-gradient(to right, #00008a, #0000ff);
+        }
+    </style>
+</head>
+<body class="bg-gray-800 px-6 py-3 text-white">
+    <header class="bg-black flex justify-between items-center p-4 rounded-lg mb-4">
+        <h1 class="font-bold text-xl">LOGO</h1>
+        <nav class="flex gap-4">
+            <a href="#" class="hover:text-gray-700 transition font-semibold">Dashboard</a>
+            <a href="#" class="hover:text-gray-700 transition font-semibold">Materi</a>
+            <a href="#" class="hover:text-gray-700 transition font-semibold">Profil</a>
+        </nav>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="bg-gray-900 p-3 rounded-lg hover:shadow-lg hover:scale-105 transition">
+            <h2 class="font-bold text-lg text-center">Materi 1</h2>
+            <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, quidem amet dolor veniam neque ipsum id suscipit nulla aliquid itaque deleniti laudantium modi impedit. Aperiam culpa eaque nihil aut soluta!</p>
+        </div>
+        <div class="bg-gray-900 p-3 rounded-lg hover:shadow-lg hover:scale-105 transition">
+            <h2 class="font-bold text-lg text-center">Materi 2</h2>
+            <p class="text-justify">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut error quisquam optio nostrum assumenda facilis deserunt accusantium mollitia! Quo possimus repellendus corporis saepe incidunt voluptatem voluptate rem velit quia? Blanditiis.</p>
+        </div>
+        <div class="bg-gray-900 p-3 rounded-lg hover:shadow-lg hover:scale-105 transition">
+            <h2 class="font-bold text-lg text-center">Materi 3</h2>
+            <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis optio maiores numquam quia provident, atque ipsam accusamus inventore soluta harum animi nisi expedita sapiente, dolorum laudantium asperiores, illo excepturi quam.</p>
+        </div>
+    </div>
+    <div class="mt-12 bg-black p-6 rounded-lg max-w-md mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-4">🤫</h2>
+        <form id="loginForm" class="flex flex-col gap-3">
+            <input type="text" id="username" placeholder="Username" 
+                class="p-2 transition rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-gray-400" required>
+            <input type="password" id="password" placeholder="Password" 
+                class="p-2 transition rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-gray-400" required>
+            <button type="submit" 
+                class="hover:bg-white hover:text-black active:bg-gray-900 transition duration-300 p-2 rounded-lg font-bold mt-2">
+                Login
+            </button>
+        </form>
+        <p id="error" class="text-red-500 text-center mt-2 hidden">Invalid username or password!</p>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const user = document.getElementById("username").value;
+            const pass = document.getElementById("password").value;
+
+            const correctUser = "admin";
+            const correctPass = "1234";
+
+            if (user === correctUser && pass === correctPass) {
+                window.location.href = "wifi.html";
+            } else {
+                document.getElementById("error").classList.remove("hidden");
+            }
+        });
+    </script>
+</body>
+</html>

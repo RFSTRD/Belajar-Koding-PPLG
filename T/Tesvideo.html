@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contoh Video di HTML</title>
+  <style>
+    * {
+      font-family: arial;
+      color: white;
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contoh Video di HTML</h1>
+  <video controls>
+    <source src="../img/cat-herd.webm" type="video/webm" />
+    Browsermu tidak mendukung tag ini, upgrade donk!
+  </video>
+
+  <h1>Contoh Video sebagai gif</h1>
+  <video autoplay loop muted playsinline>
+    <source src="../img/cat-herd.mp4" type="video/mp4" />
+  </video>
+
+  <h1>Video Subtitle</h1>
+  <video controls>
+    <source src="../img/cat-herd.webm" type="video/webm" />
+    <track src="../img/cat-herd-id.vtt" kind="subtitles" srclang="id" label="Indonesia"/>
+  </video>
+</body>
+</html>

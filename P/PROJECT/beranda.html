@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/1946/1946436.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            min-height: 100vh;
+            font-family: "Poppins", sans-serif;
+            background-color: hsl(0, 0%, 40%);
+            opacity: 0;
+            transition: opacity 3600s ease;
+        }
+        body:hover {
+            opacity: 1;
+            transition: opacity 1s linear;
+        }
+        nav {
+            background-color: hsl(0, 0%, 10%);
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+        nav ul {
+            width: 100%;
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        nav li {
+            height: 50px;
+        }
+        nav a {
+            height: 100%;
+            padding: 0 10px;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: black;
+        }
+        nav li:first-child {
+            margin-right: auto;
+        }
+        nav i:first-child {
+            margin-inline: 5px;
+        }
+        nav li:nth-child(2) {
+            display: none;
+        }
+        @media screen and (max-width:691px) {
+            nav ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            nav li:not(:first-child):not(:nth-child(2)) {
+                width: 100%;
+                opacity: 0;
+                max-height: 0;
+                overflow: hidden;
+            }
+            nav li:nth-child(2) {
+                display: block;
+                right: 0;
+                top: 0;
+                position: fixed;
+                background-color: transparent;
+                backdrop-filter: blur(10px);
+                border: 2px solid rgba(0, 0, 0, 0.2);
+                border-radius: 10px;
+                height: 45px;
+                z-index: 999;
+            }
+            nav li:not(:first-child):not(:nth-child(2)).show {
+                opacity: 1;
+                max-height: inherit;
+                transition: 1s ease;
+            }
+            nav a:active {
+                background-color: black;
+            }
+            body {
+                opacity: 1;
+            }
+        }
+
+        .Beranda {
+            background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Candi_singosari.jpg/500px-Candi_singosari.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            filter: grayscale();
+            min-height: 100vh;
+            z-index: -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            color: white;
+            background: transparent;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 3%;
+            text-align: center;
+            width: 90vh;
+        }
+        .container a {
+            color: white;
+            text-decoration: none;
+            background-color: black;
+            padding: 10px 20px;
+            border-radius: 100vh;
+        }
+        .container h3 {
+            margin: 10px 0;
+
+        }
+        .container p {
+            margin: 10px 0 20px 0;
+        }
+
+        .Daftar-Materi {
+            margin-top: 10vh;
+            text-align: center;
+            color: white;
+        }
+        @keyframes scale {
+            from {
+                scale: .5;
+            }
+            to {
+                scale: 1;
+            }
+        }
+        @media (prefers-reduced-motion: no-preference) {
+            .Daftar-Materi {
+                animation: scale ease;
+                animation-timeline: scroll();
+            }
+            footer {
+                animation: scale ease;
+                animation-timeline: scroll();
+            }
+            .Video {
+                animation: scale ease;
+                animation-timeline: scroll();
+            }
+        }
+        @keyframes putar {
+            from {
+                transform: rotate(360deg);
+            }
+            to {
+                transform: rotate(0deg);
+            }
+        }
+        .cards {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+
+        }
+        #card1 {
+            background: linear-gradient(to bottom right, black, hsl(0, 0%, 10%));
+            border-radius: 10px;
+            margin: 5px;
+        }
+        #card2 {
+            background: linear-gradient(to bottom left, black, hsl(0, 0%, 10%));
+            border-radius: 10px;
+            margin: 5px;
+        }
+        #card3 {
+            background: linear-gradient(to top right, black, hsl(0, 0%, 10%));
+            border-radius: 10px;
+            margin: 5px;
+        }
+        #card4 {
+            background: linear-gradient(to top left, black, hsl(0, 0%, 10%));
+            border-radius: 10px;
+            margin: 5px;
+        }
+        .cards button {
+            border: none;
+            margin-bottom: -1px;
+            outline: none;
+            color: transparent;
+            padding: 10px 30px;
+            font-weight: bold;
+            background-color: transparent;
+            border-radius: 10px 10px 0 0;
+            cursor: pointer;
+            transition: color 0.5s ease;
+            transition: background-color 0.5s ease;
+        }
+        .cards button:hover {
+            color: white;
+            background-color: hsl(0, 0%, 40%);
+            transition: color 1s ease;
+            transition: background-color 1s ease;
+        }
+        .cards img {
+            width: 43vh;
+            height: 33vh;
+            filter: grayscale();
+            border-radius: 10px 10px 0 0;
+        }
+
+        .Video {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+        }
+        .Video iframe {
+            width: 100vh;
+            height: 315px;
+        }
+        
+    footer {
+        max-width: 1120px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: justify;
+        gap: 32px;
+        color: white;
+        padding: 40px 24px;
+    }
+    footer h3 {
+        font-weight: 600;
+        margin-bottom: 12px;
+    }
+    footer p,
+    footer ul,
+    footer li,
+    footer a,
+    footer span {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    footer ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    footer a {
+        text-decoration: underline;
+        color: white;
+    }
+    footer a:hover {
+        color: #d1d5db;
+    }
+    .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+    .contact-item i {
+        margin-right: 8px;
+    }
+    .social-links {
+        display: flex;
+        gap: 16px;
+        margin-top: 8px;
+    }
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        padding-top: 16px;
+        text-align: center;
+        font-size: 12px;
+        user-select: none;
+    }
+    .Gambar {
+        margin-left: 46%;
+        margin-right: 46%;
+        width: 80px;
+        height: 80px;
+        animation: putar ease;
+        animation-timeline: view();
+    }
+    #Kontak {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+    }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#Beranda"><i class="fa fa-globe"></i>SEJARAH KERAJAAN SINGASARI</a></li>
+            <li onclick="buka()"><a href="#"><h1><i class="fa fa-bars"></i></h1></a></li>
+            <li><a href="#Daftar-Materi">Materi</a></li>
+            <li><a href="#Tentang">Tentang</a></li>
+            <li><a href="#Kontak">Kontak</a></li>
+            <li><a href="#Video">Video</a></li>
+        </ul>
+    </nav>
+
+    <div class="Beranda" id="Beranda">
+        <div class="container">
+            <h3>Beranda</h3>
+            <p>Selamat datang di halaman utama pembelajaran sejarah Kerajaan Singasari. Di halaman ini, Anda dapat memulai perjalanan pembelajaran yang menarik, informatif, dan menyeluruh mengenai salah satu kerajaan besar yang pernah berjaya di Nusantara, yaitu Kerajaan Singasari. Untuk memulai proses pembelajaran ini, silakan pilih salah satu menu yang telah disediakan.</p>
+            <a href="#Daftar-Materi" class="btn-mulai"><i class="fa fa-book"></i> Mulai Belajar</a>
+        </div>
+    </div>
+
+    <div class="Daftar-Materi" id="Daftar-Materi">
+        <h1>Daftar Materi</h1>
+        <div class="cards">
+            <div id="card1" onclick="alert('Anda akan masuk materi #1')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Candi_singosari.jpg/500px-Candi_singosari.jpg" alt="Singasari">
+                <h4>Materi #1</h4>
+                <a href="Detail-Materi1.html"><button>LIHAT</button></a>
+            </div>
+            <div id="card2" onclick="alert('Anda akan masuk materi #2')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/063_Main_Statue%2C_Joko_Dolog_%2839706345204%29.jpg/500px-063_Main_Statue%2C_Joko_Dolog_%2839706345204%29.jpg" alt="Kertanegara">
+                <h4>Materi #2</h4>
+                <a href="Detail-Materi2.html"><button>LIHAT</button></a>
+            </div>
+            <div id="card3" onclick="alert('Anda akan masuk materi #3')">
+                <img src="https://asset.kompas.com/crops/Iw9g-f2Y0ACKeapanxHa1ZoyP1k=/1x285:857x856/1200x800/data/photo/2021/07/28/6101602531779.jpg" alt="Khubilai Khan">
+                <h4>Materi #3</h4>
+                <a href="Detail-Materi3.html"><button>LIHAT</button></a>
+            </div>
+            <div id="card4" onclick="alert('Anda akan masuk materi #4')">
+                <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRRZrlJypn0nEDK0_mqCrzJzYlKj9QWqW-dxSbL8vsL-8fwtA06rrh3TAW_YLct36wvnPAXYzb8Mi7rLaVyeNJUqIbpct9dlV74ERhMlZ1_" alt="Jayakatwang">
+                <h4>Materi #4</h4>
+                <a href="Detail-materi4.html"><button>LIHAT</button></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="Video" id="Video">
+        <h1>Video</h1>
+        <iframe allowfullscreen src="https://www.youtube.com/embed/h7heeSmzNfQ"></iframe>
+    </div>
+
+    <footer>
+        <div>
+            <img class="Gambar" alt="SMKN2" src="https://epjj.smkn2-bjm.sch.id/pluginfile.php/1/core_admin/logocompact/300x300/1744262310/SMK2.png"/>
+            <div id="Tentang">
+                <h3>Tentang Muhammad Rafi Astiardi <i class="fa fa-check-circle"></i></h3>
+                <p>Muhammad Rafi Astiardi adalah seorang siswa kelas 10 di SMKN 2 Banjarmasin, sebuah sekolah menengah kejuruan yang terkemuka di Kalimantan Selatan yang dikenal dengan program keahlian unggulannya, dan ia secara khusus mengambil jurusan Pengembangan Perangkat Lunak dan Gim (PPLG), yang memfokuskan pembelajaran pada penguasaan teknologi informasi, pemrograman, desain gim, dan rekayasa perangkat lunak berbasis digital. Rafi saat ini tinggal di kawasan Kayu Tangi 2, tepatnya di Jalur 2 Nomor 18, sebuah lingkungan yang tenang dan mendukung suasana belajar, yang terletak tidak jauh dari pusat kota Banjarmasin dan mudah diakses oleh berbagai fasilitas umum serta institusi pendidikan. Ia merupakan anak ketiga sekaligus bungsu dari tiga bersaudara, tumbuh dalam keluarga yang mendukung penuh pendidikan dan pengembangan potensi diri, dengan kakak-kakaknya yang turut memberikan inspirasi dan motivasi dalam menjalani perjalanan akademik serta kehidupan sehari-hari. Selain aktif di bidang akademik dan teknologi, Rafi juga memiliki sisi seni yang sangat kuat, yang ia salurkan melalui perannya sebagai pemusik di Sanggar Seni Nuansa, sebuah lembaga budaya yang berfokus pada pelestarian dan pengembangan seni tradisional maupun kontemporer di Banjarmasin. Di sanggar tersebut, ia memainkan berbagai instrumen musik, baik tradisional maupun modern, dan secara rutin terlibat dalam latihan, pertunjukan, serta pementasan seni yang diadakan di tingkat lokal maupun regional, menjadikannya sosok yang seimbang antara dunia teknologi dan dunia seni. Keaktifannya dalam sanggar tidak hanya menunjukkan kecintaannya terhadap budaya, tetapi juga melatihnya dalam hal kedisiplinan, kerja tim, dan ekspresi diri, yang kemudian memperkaya kepribadiannya secara menyeluruh. Kombinasi antara latar belakang pendidikan teknologi, kecintaan pada musik, dan lingkungan keluarga yang suportif membuat Rafi menjadi pribadi yang unik, kreatif, dan memiliki wawasan luas, serta terus berupaya menjadi generasi muda yang tidak hanya cakap dalam hal keterampilan teknis, tetapi juga berjiwa seni dan berbudaya tinggi.</p>
+            </div>
+            <div id="Kontak">
+                <h3>Kontak &amp; Sosial Media</h3>
+                <ul>
+                    <li class="contact-item"><i class="fas fa-phone-alt"></i>
+                        <a href="tel:+6281234567890">+62 812 3456 7890</a>
+                    </li>
+                    <li class="contact-item"><i class="fas fa-envelope"></i>
+                        <a href="mailto:rafiastiardi7@gmail.com">rafiastiardi7@gmail.com</a>
+                    </li>
+                    <li class="contact-item"><i class="fas fa-map-marker-alt"></i>
+                        <span>Jl. Kayu Tangi 2</span>
+                    </li>
+                    <li class="social-links">
+                        <a aria-label="Facebook" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a aria-label="Instagram" href="#"><i class="fab fa-instagram"></i></a>
+                        <a aria-label="Twitter" href="#"><i class="fab fa-twitter"></i></a>
+                        <a aria-label="LinkedIn" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <form id="contact-form" action="https://formsubmit.co/rafiastiardi7@gmail.com" method="POST" style="width:100%; max-width:500px; margin-top: 1rem; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+            <h3 style="margin-bottom:10px;">Kirim Pesan</h3>
+            <input type="text" name="name" required placeholder="Nama Anda" style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:none;">
+            <input type="email" name="email" required placeholder="Email Anda" style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:none;">
+            <textarea name="message" required placeholder="Pesan Anda" rows="4" style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:none;"></textarea>
+            <button type="submit" style="padding:10px 20px; border:none; background-color:black; color:white; border-radius:5px; cursor:pointer;">Kirim</button>
+        </form>
+
+        <div class="footer-bottom">
+            © 2025 Mawarti, S.Pd | Muhammad Rafi Astiardi - SMKN 2 BANJARMASIN . Semua hak cipta dilestarikan.
+        </div>
+    </footer>
+</body>
+<script>
+    function buka() {
+        const menuItems = document.querySelectorAll('nav li:not(:first-child):not(:nth-child(2))');
+        menuItems.forEach(item => {
+            item.classList.toggle('show');
+        });
+    }
+
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+        alert("Pesan Anda berhasil dikirim!");
+    });
+</script>
+</html>
