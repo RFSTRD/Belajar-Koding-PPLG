@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Materi</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/171/171322.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            min-height: 100vh;
+            font-family: "Poppins", sans-serif;
+            background-color: white;
+            opacity: 0;
+            transition: opacity 3600s ease;
+        }
+        body:hover {
+            opacity: 1;
+            transition: opacity 1s linear;
+        }
+        nav {
+            background: linear-gradient(to right, darkblue, blue);
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+        nav ul {
+            width: 100%;
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        nav li {
+            height: 50px;
+        }
+        nav a {
+            height: 100%;
+            padding: 0 10px;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: darkblue;
+        }
+        nav li:first-child {
+            margin-right: auto;
+        }
+        nav i:first-child {
+            margin-inline: 5px;
+        }
+        nav li:nth-child(2) {
+            display: none;
+        }
+        @media screen and (max-width:691px) {
+            nav ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            nav li:not(:first-child):not(:nth-child(2)) {
+                width: 100%;
+                opacity: 0;
+                max-height: 0;
+                overflow: hidden;
+            }
+            nav li:nth-child(2) {
+                display: block;
+                right: 0;
+                top: 0;
+                position: fixed;
+                background: transparent;
+                backdrop-filter: blur(10px);
+                border: 2px solid rgba(0, 0, 0, 0.2);
+                border-radius: 10px;
+                height: 45px;
+            }
+            nav li:not(:first-child):not(:nth-child(2)).show {
+                opacity: 1;
+                max-height: inherit;
+            }
+            nav a:active {
+                background-color: blue;
+            }
+            .cards {
+                scale: 0.95;
+            }
+        }
+        footer {
+            background: linear-gradient(to top, darkblue, transparent);
+            color: white;
+            position: fixed;
+            bottom: 0;
+            padding: 1%;
+            width: 100%;
+            text-align: center;
+        }
+        footer p {
+            font-style: oblique;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin: 12% 10%;
+            scale: 1.25;
+            padding: 0;
+        }
+        @keyframes scale {
+            from {
+                scale: .75;
+            }
+            to {
+                scale: 1;
+            }
+        }
+        @media (prefers-reduced-motion: no-preference) {
+            .content {
+                animation: scale ease;
+                animation-timeline: scroll();
+            }
+        }
+        .cards {
+            color: white;
+            text-align: center;
+            width: fit-content;
+            margin: 1%;
+            border-radius: 10px;
+        }
+        #card1 {
+            background: linear-gradient(to bottom right, darkblue, blue);
+        }
+        #card2 {
+            background: linear-gradient(to bottom left, darkblue, blue);
+        }
+        #card3 {
+            background: linear-gradient(to top right, darkblue, blue);
+        }
+        #card4 {
+            background: linear-gradient(to top left, darkblue, blue);
+        }
+        .cards button {
+            border: none;
+            margin-bottom: -1px;
+            outline: none;
+            color: transparent;
+            padding: 5px 20px;
+            font-weight: bold;
+            background-color: transparent;
+            border-radius: 10px 10px 0 0;
+            cursor: pointer;
+            transition: color 0.5s ease;
+            transition: background-color 0.5s ease;
+        }
+        .cards button:hover {
+            color: blue;
+            background-color: white;
+            transition: color 1s ease;
+            transition: background-color 1s ease;
+        }
+        .cards img {
+            width: 32vh;
+            height: 22vh;
+            border-radius: 10px 10px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="Beranda.html"><i class="fa fa-globe"></i>SEJARAH KERAJAAN SINGASARI</a></li>
+            <li onclick="buka()"><a href="#"><h1><i class="fa fa-bars"></i></h1></a></li>
+            <li><a href="Daftar-Materi.html">Materi</a></li>
+            <li><a href="Tentang.html">Tentang</a></li>
+            <li><a href="Kontak.html">Kontak</a></li>
+            <li><a href="Video.html">Video</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="cards" id="card1">
+            <a href="Detail-materi1.html"><img onclick="alert('Anda membuka Materi #1')" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Candi_singosari.jpg/500px-Candi_singosari.jpg" alt="Singasari">
+            <h4 style="color: white;">Materi #1</h4>
+            <button>Lihat</button></a>
+        </div>
+        <div class="cards" id="card2">
+            <a href="Detail-Materi2.html"></a><img onclick="alert('Anda membuka Materi #2')" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/063_Main_Statue%2C_Joko_Dolog_%2839706345204%29.jpg/500px-063_Main_Statue%2C_Joko_Dolog_%2839706345204%29.jpg" alt="Singasari">
+            <h4 style="color: white;">Materi #2</h4>
+            <button>Lihat</button></a>
+        </div>
+        <div class="cards" id="card3">
+            <a href="Detail-Materi3.html"></a><img onclick="alert('Anda membuka Materi #3')" src="https://asset.kompas.com/crops/Iw9g-f2Y0ACKeapanxHa1ZoyP1k=/1x285:857x856/1200x800/data/photo/2021/07/28/6101602531779.jpg" alt="Singasari">
+            <h4 style="color: white;">Materi #3</h4>
+            <button>Lihat</button></a>
+        </div>
+        <div class="cards" id="card4">
+            <a href="Detail-Materi4.html"></a><img onclick="alert('Anda membuka Materi #4')" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRRZrlJypn0nEDK0_mqCrzJzYlKj9QWqW-dxSbL8vsL-8fwtA06rrh3TAW_YLct36wvnPAXYzb8Mi7rLaVyeNJUqIbpct9dlV74ERhMlZ1_" alt="Singasari">
+            <h4 style="color: white;">Materi #4</h4>
+            <button>Lihat</button></a>
+        </div>
+    </div>
+
+    <footer>
+        <p><i class="fa fa-envelope"></i> @rafiastiardi7@gmail.com</p>
+    </footer>
+</body>
+<script>
+    function buka() {
+        const menuItems = document.querySelectorAll('nav li:not(:first-child):not(:nth-child(2))');
+        menuItems.forEach(item => {
+            item.classList.toggle('show');
+        })
+    }
+</script>
+</html>
