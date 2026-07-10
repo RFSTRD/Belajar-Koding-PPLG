@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Wireframe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 200px;
+            right: 0;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            background-color: #ddd;
+            padding: 10px;
+            z-index: 1000;
+        }
+        header .logo {
+            width: 50px;
+            height: 40px;
+            background-color: #bbb;
+            margin-right: 10px;
+        }
+        header input[type="text"] {
+            flex: 1;
+            margin-right: 10px;
+            padding: 5px;
+        }
+        header nav button {
+            margin-left: 5px;
+            padding: 5px 10px;
+        }
+        aside {
+            width: 200px;
+            background-color: #f4f4f4;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            z-index: 900;
+        }
+        aside button {
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: left;
+        }
+        aside .subscriptions ul {
+            list-style: none;
+            padding: 0;
+        }
+        main {
+            margin-left: 200px;
+            padding: 80px 20px 20px;
+            flex: 1;
+        }
+        .ad-banner {
+            height: 100px;
+            background-color: #ddd;
+            margin-bottom: 20px;
+        }
+        .videos {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .video-card {
+            width: 150px;
+            height: 100px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"></div>
+        <input type="text" placeholder="Search...">
+        <nav>
+            <button>Home</button>
+            <button>Trending</button>
+            <button>Subscription</button>
+            <button>Upload</button>
+            <button>Noti.</button>
+            <button>Sett.</button>
+        </nav>
+    </header>
+    <aside>
+        <button>Home</button>
+        <button>My Channel</button>
+        <button>Trending</button>
+        <button>Subscription</button>
+        <button>History</button>
+        <button>Watch Later</button>
+        <div class="subscriptions">
+            <h3>Subscriptions</h3>
+            <ul>
+                <li>Channel 1</li>
+                <li>Channel 2</li>
+                <li>Channel 3</li>
+            </ul>
+        </div>
+    </aside>
+    <main>
+        <section class="ad-banner"></section>
+        <section class="recommended">
+            <h2>Recommended</h2>
+            <div class="videos">
+                <div class="video-card">Video 1</div>
+                <div class="video-card">Video 2</div>
+                <div class="video-card">Video 3</div>
+                <div class="video-card">Video 4</div>
+                <div class="video-card">Video 5</div>
+            </div>
+        </section>
+        <section class="recently-uploaded">
+            <h2>Recently Uploaded</h2>
+            <div class="videos">
+                <div class="video-card">Video 1</div>
+                <div class="video-card">Video 2</div>
+                <div class="video-card">Video 3</div>
+                <div class="video-card">Video 4</div>
+                <div class="video-card">Video 5</div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

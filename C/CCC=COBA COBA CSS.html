@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        header, footer {
+            text-align: center;
+            background-color: black;
+            color: white;
+            padding: 20px;
+        }
+        .intro {
+            padding: 15px;
+            margin-bottom: 0px;
+            background-color: black;
+            color: white;
+        }
+        .sidebar {
+            width: 25%;
+            background-color: dimgray;
+            color: white;
+            padding: 20px;
+        }
+        main {
+            display: flex;
+        }
+        .content {
+            width: 75%;
+            padding: 40px;
+            color: white;
+        }
+        .module {
+            margin-bottom: 20px;
+        }
+        .summary {
+            background-color: black;
+            color: white;
+            padding: 15px;
+        }
+        .summary div {
+            margin-bottom: 10px;
+        }
+        #modul-html {
+            background-color: #E44D25;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        #modul-CSS {
+            background-color: #379AD6;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        #modul-JS {
+            background-color: #F4E11D;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        #navigation1 {
+                margin-left: 500px;
+                margin-right: 500px;
+                padding: 10px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+        }
+        #navigation2 {
+            border: 1px solid #fff;
+            margin-left: 500px;
+                margin-right: 500px;
+                padding: 10px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+        }
+        #navigation3 {
+            border: 1px solid #fff;
+                            margin-left: 500px;
+                margin-right: 500px;
+                padding: 10px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<!-- header dengan id -->
+    <div id="header">
+        <header>
+            <h1>MEDIA PEMBELAJARAN HTML-CSS-JS</h1>
+            <div id="navigation1">
+                <ul>
+                    <li><a href="#modul-html">MODUL 1: HTML</a></li>
+                    <hr>
+                    <li><a href="#modul-CSS">MODUL 2: CSS</a></li>
+                    <hr>
+                    <li><a href="#modul-JS">MODUL 3: JAVASCRIPT</a></li>
+                </ul>
+            </div>
+        </header>
+    </div>
+
+<!-- Pengantar dan tujuan pembelajaran dengan class intro -->
+    <div class="intro">
+        <div>
+            <h2>PENGANTAR</h2>
+            <p>Selamat datang di media pembelajaran ini. Di sini, Anda akan mempelajari dasar-dasar pengembangan web.</p>
+        </div>
+        <div>
+            <h2>TUJUAN PEMBELAJARAN</h2>
+            <p>Memahami dasar-dasar HTML, CSS, dan JavaScript untuk membuat halaman web sederhana.</p>
+        </div>
+    </div>
+
+<!-- Sidebar dengan class untuk modul pembelajaran -->
+    <main>
+         <div class="sidebar">
+            <h3>DAFTAR MODUL</h3>
+            <div class="module">1. modul html</div>
+            <div class="module">2. modul css</div>
+            <div class="module">3. modul javascript</div>
+         </div>
+
+<!-- Konten utama dengan class -->
+         <div class="content">
+<!-- modul 1 html -->
+             <div class="module" id="modul-html">
+                <h2>Modul 1: HTML</h2>
+                <p>HTML adalah bahasa dasar untuk membuat struktur halaman web.</p>
+                <ul>
+                    <li>Mengenal tag dasar HTML</li>
+                    <li>Membuat struktur halaman dengan elemen-elemen HTML</li>
+                </ul>
+             </div>
+
+<!-- modul 2 css -->
+              <div class="module" id="modul-CSS">
+                <h2>Modul 2: CSS</h2>
+                <p>CSS digunakan untuk mengatur tampilan halaman web.</p>
+                <ul>
+                    <li>Mengatur warna, font, dan layout</li>
+                    <li>Menggunakan selector CSS</li>
+                </ul>
+              </div>
+
+<!-- modul 3 javascript -->
+              <div class="module" id="modul-JS">
+                <h2>Modul 3: JAVASCRIPT</h2>
+                <p>JavaScript adalah bahasa pemrograman untuk memberikan interaktivitas pada halaman web.</p>
+                <ul>
+                    <li>Membuat interaksi sederhana dengan JavaScript</li>
+                    <li>Memanipulasi elemen HTML menggunakan DOM</li>
+                </ul>
+              </div>
+         </div>
+    </main>
+    
+<!-- Footer dengan id -->
+    <div id="footer">
+        <footer>
+            <p>Kontak: info@mediapembelajaran.com | Hak Cipta &copy; 2024</p>
+        </footer>
+    </div>
+
+<!-- Ringkasan modul dengan class summary -->
+    <div class="summary">
+        <h2>RINGKASAN MODUL:</h2>
+        <div id="summary-html">
+            <h3>1. HTML :</h3>
+            <P>HTML adalah dasar dari semua halaman web. Menggunakan tag untuk membuat struktur.</P>
+        </div>
+        <div id="summary-css">
+            <h3>2. CSS :</h3>
+            <p>CSS digunakan untuk mengatur gaya tampilan halaman web seperti warna dan layout.</p>
+        </div>
+        <div id="summary-js">
+            <h3>3. JAVASCRIPT :</h3>
+            <p>JavaScript memberikan kemampuan interaktif pada halaman web.</p>
+        </div>
+    </div>
+</body>
+</html>

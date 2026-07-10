@@ -1,0 +1,130 @@
+<html lang="id">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Tentang</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/64/64494.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            font-family: "Poppins", sans-serif;
+            background-color: white;
+            opacity: 0;
+            transition: opacity 3600s ease;
+        }
+        body:hover {
+            opacity: 1;
+            transition: opacity 1s linear;
+        }
+        header {
+            color: #003300;
+        }
+        #foot {
+            min-height: 100vh;
+        }
+        nav {
+            background: linear-gradient(to right, darkblue, blue);
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+        nav ul {
+            width: 100%;
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        nav li {
+            height: 50px;
+        }
+        nav a {
+            height: 100%;
+            padding: 0 10px;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: darkblue;
+        }
+        nav li:first-child {
+            margin-right: auto;
+        }
+        nav i:first-child {
+            margin-inline: 5px;
+        }
+        nav li:nth-child(2) {
+            display: none;
+        }
+        @media screen and (max-width:691px) {
+            nav ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            nav li:not(:first-child):not(:nth-child(2)) {
+                width: 100%;
+                opacity: 0;
+                max-height: 0;
+                overflow: hidden;
+            }
+            nav li:nth-child(2) {
+                display: block;
+                right: 0;
+                top: 0;
+                position: fixed;
+                background: transparent;
+                backdrop-filter: blur(10px);
+                border: 2px solid rgba(0, 0, 0, 0.2);
+                border-radius: 10px;
+                height: 45px;
+                font-size: larger;
+            }
+            nav li:not(:first-child):not(:nth-child(2)).show {
+                opacity: 1;
+                max-height: inherit;
+            }
+            nav a:active {
+                background-color: blue;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="Beranda.html"><i class="fa fa-globe"></i>SEJARAH KERAJAAN SINGASARI</a></li>
+            <li onclick="buka()"><a href="#"><h1><i class="fa fa-bars"></i></h1></a></li>
+            <li><a href="Daftar-Materi.html">Materi</a></li>
+            <li><a href="Tentang.html">Tentang</a></li>
+            <li><a href="Kontak.html">Kontak</a></li>
+            <li><a href="Video.html">Video</a></li>
+        </ul>
+    </nav>
+    <div class="px-6 py-10" style="color: blue;" id="foot">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-1 gap-8">
+            <div>
+                <h3 class="font-semibold mb-3">Tentang Muhammad Rafi Astiardi <i class="fa fa-check-circle"></i></h3>
+                <p class="text-sm leading-relaxed"></i> Muhammad Rafi Astiardi adalah seorang siswa kelas 10 di SMKN 2 Banjarmasin, sebuah sekolah menengah kejuruan yang terkemuka di Kalimantan Selatan yang dikenal dengan program keahlian unggulannya, dan ia secara khusus mengambil jurusan Pengembangan Perangkat Lunak dan Gim (PPLG), yang memfokuskan pembelajaran pada penguasaan teknologi informasi, pemrograman, desain gim, dan rekayasa perangkat lunak berbasis digital. Rafi saat ini tinggal di kawasan Kayu Tangi 2, tepatnya di Jalur 2 Nomor 18, sebuah lingkungan yang tenang dan mendukung suasana belajar, yang terletak tidak jauh dari pusat kota Banjarmasin dan mudah diakses oleh berbagai fasilitas umum serta institusi pendidikan. Ia merupakan anak ketiga sekaligus bungsu dari tiga bersaudara, tumbuh dalam keluarga yang mendukung penuh pendidikan dan pengembangan potensi diri, dengan kakak-kakaknya yang turut memberikan inspirasi dan motivasi dalam menjalani perjalanan akademik serta kehidupan sehari-hari. Selain aktif di bidang akademik dan teknologi, Rafi juga memiliki sisi seni yang sangat kuat, yang ia salurkan melalui perannya sebagai pemusik di Sanggar Seni Nuansa, sebuah lembaga budaya yang berfokus pada pelestarian dan pengembangan seni tradisional maupun kontemporer di Banjarmasin. Di sanggar tersebut, ia memainkan berbagai instrumen musik, baik tradisional maupun modern, dan secara rutin terlibat dalam latihan, pertunjukan, serta pementasan seni yang diadakan di tingkat lokal maupun regional, menjadikannya sosok yang seimbang antara dunia teknologi dan dunia seni. Keaktifannya dalam sanggar tidak hanya menunjukkan kecintaannya terhadap budaya, tetapi juga melatihnya dalam hal kedisiplinan, kerja tim, dan ekspresi diri, yang kemudian memperkaya kepribadiannya secara menyeluruh. Kombinasi antara latar belakang pendidikan teknologi, kecintaan pada musik, dan lingkungan keluarga yang suportif membuat Rafi menjadi pribadi yang unik, kreatif, dan memiliki wawasan luas, serta terus berupaya menjadi generasi muda yang tidak hanya cakap dalam hal keterampilan teknis, tetapi juga berjiwa seni dan berbudaya tinggi.</p>
+                <img alt="SMKN 2" class="mt-4" height="80" src="https://epjj.smkn2-bjm.sch.id/pluginfile.php/1/core_admin/logocompact/300x300/1744262310/SMK2.png" width="80"/>
+            </div> 
+        </div>
+        <div class="mt-10 border-t border-black/30 pt-4 text-center text-xs select-none">© 2025 Muhammad Rafi Astiardi - SMKN 2 BANJARMASIN . Semua hak cipta dilestarikan.</div>
+    </div>
+</body>
+<script>
+    function buka() {
+        const menuItems = document.querySelectorAll('nav li:not(:first-child):not(:nth-child(2))');
+        menuItems.forEach(item => {
+            item.classList.toggle('show');
+        })
+    }
+</script>
+</html>
