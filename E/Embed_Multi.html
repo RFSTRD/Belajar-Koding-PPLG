@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Iframes</title>
+    <style>
+        iframe {
+            height: 25%;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+        .container iframe {
+            height: 450px; /* Adjust based on content */
+        }
+    </style>
+</head>
+<body>
+    <h1>Multiple Iframes</h1>
+    <div class="container">
+        <h2>Video YouTube</h2>
+        <iframe 
+            src="https://www.youtube.com/embed/3deAVcufliI" 
+            frameborder="0" 
+            allowfullscreen>
+        </iframe>
+        
+        <h2>Peta Google Maps</h2>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666347494434!2d106.82458402355361!3d-6.175403010510408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2db8c5617%3A0x4e446b7ac891d847!2sMonas%2C%20Gambir%2C%20Kecamatan%20Gambir%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sen!2sid!4v1726626722749!5m2!1sen!2sid" 
+            frameborder="0" 
+            allowfullscreen>
+        </iframe>
+    </div>
+</body>
+</html>

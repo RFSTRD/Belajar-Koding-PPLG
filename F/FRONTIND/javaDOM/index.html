@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Pembelajaran Interaktif</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <h1>Media Pembelajaran Interaktif</h1>
+      <ul id="menu">
+        <li><a href="#" data-menu="dashboard">Dashboard</a></li>
+        <li><a href="#" data-menu="materi">Materi</a></li>
+        <li><a href="#" data-menu="kuis">Kuis</a></li>
+        <li><a href="#" id="logoutBtn">Logout</a></li>
+      </ul>
+    </nav>
+
+    <div id="content" class="fade-in"></div>
+
+    <div id="authModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="authForm">
+          <h2 id="authTitle">Login</h2>
+          <input type="text" id="username" placeholder="Username" />
+          <input type="password" id="password" placeholder="Password" />
+          <button id="authActionBtn">Login</button>
+          <p id="authMessage"></p>
+          <p>
+            Belum punya akun? <a href="#" id="switchToRegister">Register</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

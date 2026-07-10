@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard E-Learning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+    </script>
+    <style>
+      /* ===== GAYA MODERN YANG KONSISTEN UNTUK SEMUA HALAMAN ===== */
+      body {
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .glass-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.2);
+      }
+      .dark .glass-card {
+        background: rgba(30, 30, 40, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .nav-item {
+        transition: all 0.2s ease;
+        border-radius: 12px;
+        padding: 10px 15px;
+        cursor: pointer;
+      }
+      .nav-item:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateX(5px);
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .app-container {
+        display: flex;
+        min-height: 100vh;
+        position: relative;
+      }
+      .sidebar {
+        min-height: 100vh;
+        height: auto;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .burger-btn {
+        display: none;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1001;
+        background: linear-gradient(135deg, #1e3a8a, #2563eb);
+        border: none;
+        border-radius: 12px;
+        padding: 12px;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .burger-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .burger-icon {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 5px 0;
+        transition: 0.3s;
+        border-radius: 3px;
+      }
+
+      .burger-btn.open .burger-icon:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+
+      .burger-btn.open .burger-icon:nth-child(2) {
+        opacity: 0;
+      }
+
+      .burger-btn.open .burger-icon:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+      }
+
+      .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        backdrop-filter: blur(3px);
+      }
+
+      .sidebar-overlay.active {
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .burger-btn {
+          display: block;
+        }
+        .sidebar {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 1000;
+          transform: translateX(-100%);
+          width: 280px;
+          box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar.active {
+          transform: translateX(0);
+        }
+        main {
+          margin-left: 0;
+          padding-top: 70px;
+        }
+        .sidebar {
+          transform: translateX(-100%);
+        }
+      }
+
+      @media (min-width: 769px) {
+        .sidebar {
+          transform: translateX(0) !important;
+          position: relative;
+        }
+        .burger-btn {
+          display: none;
+        }
+        .sidebar-overlay {
+          display: none !important;
+        }
+      }
+
+      .dark .text-dark-adaptive {
+        color: white !important;
+      }
+      .dark .glass-card h2,
+      .dark .glass-card h3,
+      .dark .glass-card p,
+      .dark .glass-card .text-lg,
+      .dark .glass-card .font-semibold,
+      .dark .glass-card .text-xl {
+        color: white !important;
+      }
+      .dark .glass-card {
+        color: white !important;
+      }
+      .dark #progressText {
+        color: white !important;
+      }
+      .dark #welcome {
+        color: white !important;
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300"
+  >
+    <button class="burger-btn" id="burgerBtn" onclick="toggleSidebar()">
+      <div class="burger-icon"></div>
+      <div class="burger-icon"></div>
+      <div class="burger-icon"></div>
+    </button>
+
+    <div
+      class="sidebar-overlay"
+      id="sidebarOverlay"
+      onclick="closeSidebar()"
+    ></div>
+
+    <div class="app-container flex flex-col md:flex-row">
+      <aside
+        class="sidebar w-full md:w-72 bg-gradient-to-b from-blue-900 to-blue-800 text-white p-6 shadow-2xl"
+        id="sidebar"
+      >
+        <div class="flex justify-between items-center mb-8 md:block">
+          <h1 class="text-3xl font-extrabold tracking-tight">E-Learning</h1>
+        </div>
+        <ul class="space-y-3">
+          <li class="nav-item" onclick="navigateTo('index.html')">
+            <a href="index.html" class="block">Dashboard</a>
+          </li>
+          <li class="nav-item" onclick="navigateTo('materi.html')">
+            <a href="materi.html" class="block">Materi</a>
+          </li>
+          <li class="nav-item" onclick="navigateTo('kuis.html')">
+            <a href="kuis.html" class="block">Kuis</a>
+          </li>
+          <li class="nav-item" onclick="navigateTo('kuis.html')">
+            <a href="profil.html" class="block">Portfolio</a>
+          </li>
+        </ul>
+        <button
+          onclick="toggleDark()"
+          class="mt-8 w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm px-4 py-2 rounded-xl transition"
+        >
+          Dark Mode
+        </button>
+      </aside>
+
+      <main class="flex-1 p-6 md:p-8">
+        <div
+          class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4"
+        >
+          <h2
+            class="text-3xl font-bold bg-gradient-to-r from-blue-700 to-purple-600 bg-clip-text text-transparent dark:text-white"
+            id="welcome"
+          ></h2>
+          <button
+            onclick="logout()"
+            class="bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-xl shadow-md transition transform hover:scale-105"
+          >
+            Logout
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-6 mt-8">
+          <div class="glass-card rounded-2xl p-6 shadow-xl">
+            <h3 class="text-lg font-semibold text-black dark:text-white">
+              Materi
+            </h3>
+            <p
+              class="text-4xl font-bold mt-2 text-black dark:text-white"
+              id="totalMateri"
+            >
+              5
+            </p>
+          </div>
+          <div class="glass-card rounded-2xl p-6 shadow-xl">
+            <h3 class="text-lg font-semibold text-black dark:text-white">
+              Kuis
+            </h3>
+            <p
+              class="text-4xl font-bold mt-2 text-black dark:text-white"
+              id="totalKuis"
+            >
+              5
+            </p>
+          </div>
+          <div class="glass-card rounded-2xl p-6 shadow-xl">
+            <h3 class="text-lg font-semibold text-black dark:text-white">
+              Progress
+            </h3>
+            <p
+              id="progressText"
+              class="text-4xl font-bold mt-2 text-black dark:text-white"
+            >
+              0%
+            </p>
+          </div>
+          <div class="glass-card rounded-2xl p-6 shadow-xl">
+            <h3 class="text-lg font-semibold text-black dark:text-white">XP</h3>
+            <p
+              id="xpText"
+              class="text-4xl font-bold mt-2 text-black dark:text-white"
+            >
+              0
+            </p>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 shadow-xl mt-8">
+          <h2 class="text-xl font-bold mb-3 text-black dark:text-white">
+            Progress Belajar
+          </h2>
+          <div
+            class="w-full bg-gray-300 dark:bg-gray-700 h-4 rounded-full overflow-hidden"
+          >
+            <div
+              id="progressBar"
+              class="bg-gradient-to-r from-blue-500 to-purple-600 h-4 rounded-full transition-all duration-500"
+              style="width: 0%"
+            ></div>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 shadow-xl mt-8">
+          <h2 class="text-xl font-bold mb-3 text-black dark:text-white">
+            Pencapaian (Badge)
+          </h2>
+          <div class="flex gap-4 flex-wrap" id="badgeContainer">
+            <div
+              class="badge-item opacity-50 bg-gray-200 dark:bg-gray-700 p-3 rounded-lg"
+            >
+              Pemula
+            </div>
+            <div
+              class="badge-item opacity-50 bg-gray-200 dark:bg-gray-700 p-3 rounded-lg"
+            >
+              Pelajar Aktif
+            </div>
+            <div
+              class="badge-item opacity-50 bg-gray-200 dark:bg-gray-700 p-3 rounded-lg"
+            >
+              Master
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-4 mt-6 flex-wrap">
+          <button
+            onclick="tambahProgress()"
+            class="bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-white px-6 py-3 rounded-xl shadow-lg transition transform hover:scale-105 font-semibold"
+          >
+            Selesaikan Materi (+10%)
+          </button>
+          <button
+            onclick="tambahXP(50)"
+            class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-6 py-3 rounded-xl shadow-lg transition transform hover:scale-105 font-semibold"
+          >
+            Kerjakan Tugas (+50 XP)
+          </button>
+          <button
+            onclick="resetSemuaProgres()"
+            class="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white px-6 py-3 rounded-xl shadow-lg transition transform hover:scale-105 font-semibold"
+          >
+            Reset Semua Progres
+          </button>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("sidebarOverlay");
+        const burgerBtn = document.getElementById("burgerBtn");
+        sidebar.classList.toggle("active");
+        overlay.classList.toggle("active");
+        burgerBtn.classList.toggle("open");
+        if (sidebar.classList.contains("active")) {
+          document.body.style.overflow = "hidden";
+        } else {
+          document.body.style.overflow = "";
+        }
+      }
+
+      function closeSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("sidebarOverlay");
+        const burgerBtn = document.getElementById("burgerBtn");
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+        burgerBtn.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      function navigateTo(page) {
+        closeSidebar();
+        setTimeout(() => {
+          window.location.href = page;
+        }, 150);
+      }
+    </script>
+  </body>
+</html>

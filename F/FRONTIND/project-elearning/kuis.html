@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kuis - E-Learning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+    </script>
+    <style>
+      body {
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .glass-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.2);
+      }
+      .dark .glass-card {
+        background: rgba(30, 30, 40, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .nav-item {
+        transition: all 0.2s ease;
+        border-radius: 12px;
+        padding: 10px 15px;
+        cursor: pointer;
+      }
+      .nav-item:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateX(5px);
+      }
+      .quiz-btn {
+        transition: all 0.2s;
+      }
+      .quiz-btn:hover {
+        transform: scale(1.02);
+        filter: brightness(1.05);
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .app-container {
+        display: flex;
+        min-height: 100vh;
+        position: relative;
+      }
+      .sidebar {
+        min-height: 100vh;
+        height: auto;
+        transition: transform 0.3s ease-in-out;
+      }
+      .burger-btn {
+        display: none;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1001;
+        background: linear-gradient(135deg, #1e3a8a, #2563eb);
+        border: none;
+        border-radius: 12px;
+        padding: 12px;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+      .burger-icon {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 5px 0;
+        transition: 0.3s;
+        border-radius: 3px;
+      }
+      .burger-btn.open .burger-icon:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+      .burger-btn.open .burger-icon:nth-child(2) {
+        opacity: 0;
+      }
+      .burger-btn.open .burger-icon:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+      }
+      .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        backdrop-filter: blur(3px);
+      }
+      .sidebar-overlay.active {
+        display: block;
+      }
+      @media (max-width: 768px) {
+        .burger-btn {
+          display: block;
+        }
+        .sidebar {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 1000;
+          transform: translateX(-100%);
+          width: 280px;
+        }
+        .sidebar.active {
+          transform: translateX(0);
+        }
+        main {
+          padding-top: 70px;
+        }
+      }
+      @media (min-width: 769px) {
+        .sidebar {
+          transform: translateX(0) !important;
+          position: relative;
+        }
+        .burger-btn {
+          display: none;
+        }
+        .sidebar-overlay {
+          display: none !important;
+        }
+      }
+      .hasil-benar {
+        color: #10b981 !important;
+      }
+      .hasil-salah {
+        color: #ef4444 !important;
+      }
+      .soal-item {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+      }
+      .dark .soal-item {
+        border-bottom-color: rgba(255, 255, 255, 0.1);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300"
+  >
+    <button class="burger-btn" id="burgerBtn" onclick="toggleSidebar()">
+      <div class="burger-icon"></div>
+      <div class="burger-icon"></div>
+      <div class="burger-icon"></div>
+    </button>
+
+    <div
+      class="sidebar-overlay"
+      id="sidebarOverlay"
+      onclick="closeSidebar()"
+    ></div>
+
+    <div class="app-container flex flex-col md:flex-row">
+      <aside
+        class="sidebar w-full md:w-72 bg-gradient-to-b from-blue-900 to-blue-800 text-white p-6 shadow-2xl"
+        id="sidebar"
+      >
+        <div class="flex justify-between items-center mb-8 md:block">
+          <h1 class="text-3xl font-extrabold tracking-tight">E-Learning</h1>
+        </div>
+        <ul class="space-y-3">
+          <li class="nav-item" onclick="navigateTo('index.html')">
+            <a href="index.html" class="block">Dashboard</a>
+          </li>
+          <li class="nav-item" onclick="navigateTo('materi.html')">
+            <a href="materi.html" class="block">Materi</a>
+          </li>
+          <li class="nav-item" onclick="navigateTo('kuis.html')">
+            <a href="kuis.html" class="block">Kuis</a>
+          </li>
+          <li class="nav-item" onclick="navigateTo('kuis.html')">
+            <a href="profil.html" class="block">Portfolio</a>
+          </li>
+        </ul>
+        <button
+          onclick="toggleDark()"
+          class="mt-8 w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm px-4 py-2 rounded-xl transition"
+        >
+          Dark Mode
+        </button>
+      </aside>
+
+      <main class="flex-1 p-8">
+        <h1
+          class="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-700 to-purple-600 bg-clip-text text-transparent"
+        >
+          Kuis Interaktif (5 Soal)
+        </h1>
+
+        <!-- SOAL 1 -->
+        <div
+          class="soal-item glass-card rounded-2xl p-6 text-black dark:text-white"
+        >
+          <p class="text-xl font-semibold mb-4">
+            1. Apa kepanjangan dari HTML?
+          </p>
+          <button
+            onclick="jawab(1, true, 'HTML adalah HyperText Markup Language')"
+            class="quiz-btn block w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-xl mb-3 shadow-md"
+          >
+            HyperText Markup Language
+          </button>
+          <button
+            onclick="jawab(1, false, 'HTML adalah HyperText Markup Language')"
+            class="quiz-btn block w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-xl mb-3 shadow-md"
+          >
+            HighTech Modern Language
+          </button>
+          <button
+            onclick="jawab(1, false, 'HTML adalah HyperText Markup Language')"
+            class="quiz-btn block w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-xl shadow-md"
+          >
+            Hyper Transfer Markup Language
+          </button>
+          <p id="hasil1" class="mt-3 text-sm"></p>
+        </div>
+
+        <!-- SOAL 2 -->
+        <div
+          class="soal-item glass-card rounded-2xl p-6 text-black dark:text-white"
+        >
+          <p class="text-xl font-semibold mb-4">2. CSS digunakan untuk...</p>
+          <button
+            onclick="
+              jawab(
+                2,
+                true,
+                'CSS digunakan untuk styling/mempercantik halaman web',
+              )
+            "
+            class="quiz-btn block w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-xl mb-3 shadow-md"
+          >
+            Mempercantik tampilan website
+          </button>
+          <button
+            onclick="
+              jawab(
+                2,
+                false,
+                'CSS digunakan untuk styling/mempercantik halaman web',
+              )
+            "
+            class="quiz-btn block w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-xl mb-3 shadow-md"
+          >
+            Membuat database
+          </button>
+          <button
+            onclick="
+              jawab(
+                2,
+                false,
+                'CSS digunakan untuk styling/mempercantik halaman web',
+              )
+            "
+            class="quiz-btn block w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-xl shadow-md"
+          >
+            Menjalankan server
+          </button>
+          <p id="hasil2" class="mt-3 text-sm"></p>
+        </div>
+
+        <!-- SOAL 3 -->
+        <div
+          class="soal-item glass-card rounded-2xl p-6 text-black dark:text-white"
+        >
+          <p class="text-xl font-semibold mb-4">
+            3. JavaScript adalah bahasa pemrograman yang berjalan di...
+          </p>
+          <button
+            onclick="
+              jawab(3, true, 'JavaScript berjalan di sisi client (browser)')
+            "
+            class="quiz-btn block w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-xl mb-3 shadow-md"
+          >
+            Sisi client (browser)
+          </button>
+          <button
+            onclick="
+              jawab(3, false, 'JavaScript berjalan di sisi client (browser)')
+            "
+            class="quiz-btn block w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-xl mb-3 shadow-md"
+          >
+            Sisi server
+          </button>
+          <button
+            onclick="
+              jawab(3, false, 'JavaScript berjalan di sisi client (browser)')
+            "
+            class="quiz-btn block w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-xl shadow-md"
+          >
+            Database
+          </button>
+          <p id="hasil3" class="mt-3 text-sm"></p>
+        </div>
+
+        <!-- SOAL 4 -->
+        <div
+          class="soal-item glass-card rounded-2xl p-6 text-black dark:text-white"
+        >
+          <p class="text-xl font-semibold mb-4">
+            4. Framework CSS yang digunakan dalam proyek ini adalah...
+          </p>
+          <button
+            onclick="jawab(4, true, 'Proyek ini menggunakan Tailwind CSS')"
+            class="quiz-btn block w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-xl mb-3 shadow-md"
+          >
+            Tailwind CSS
+          </button>
+          <button
+            onclick="jawab(4, false, 'Proyek ini menggunakan Tailwind CSS')"
+            class="quiz-btn block w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-xl mb-3 shadow-md"
+          >
+            Bootstrap
+          </button>
+          <button
+            onclick="jawab(4, false, 'Proyek ini menggunakan Tailwind CSS')"
+            class="quiz-btn block w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-xl shadow-md"
+          >
+            Bulma
+          </button>
+          <p id="hasil4" class="mt-3 text-sm"></p>
+        </div>
+
+        <!-- SOAL 5 -->
+        <div
+          class="soal-item glass-card rounded-2xl p-6 text-black dark:text-white"
+        >
+          <p class="text-xl font-semibold mb-4">
+            5. Apa fungsi dari LocalStorage pada JavaScript?
+          </p>
+          <button
+            onclick="
+              jawab(
+                5,
+                true,
+                'LocalStorage menyimpan data secara lokal di browser',
+              )
+            "
+            class="quiz-btn block w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-xl mb-3 shadow-md"
+          >
+            Menyimpan data di browser secara permanen
+          </button>
+          <button
+            onclick="
+              jawab(
+                5,
+                false,
+                'LocalStorage menyimpan data secara lokal di browser',
+              )
+            "
+            class="quiz-btn block w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-xl mb-3 shadow-md"
+          >
+            Menyimpan data di server
+          </button>
+          <button
+            onclick="
+              jawab(
+                5,
+                false,
+                'LocalStorage menyimpan data secara lokal di browser',
+              )
+            "
+            class="quiz-btn block w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-xl shadow-md"
+          >
+            Menghapus data pengguna
+          </button>
+          <p id="hasil5" class="mt-3 text-sm"></p>
+        </div>
+
+        <div class="mt-6 p-4 glass-card rounded-xl">
+          <p class="font-bold">
+            Skor Anda:
+            <span id="skorTotal" class="text-2xl text-blue-500">0</span> / 5
+          </p>
+          <button
+            onclick="resetKuis()"
+            class="mt-3 bg-blue-500 text-white px-4 py-2 rounded-lg"
+          >
+            Reset Kuis
+          </button>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+      let jawabanBenar = JSON.parse(localStorage.getItem("jawabanKuis")) || [
+        false,
+        false,
+        false,
+        false,
+        false,
+      ];
+
+      function updateSkor() {
+        let skor = jawabanBenar.filter((v) => v === true).length;
+        document.getElementById("skorTotal").innerText = skor;
+        localStorage.setItem("jawabanKuis", JSON.stringify(jawabanBenar));
+
+        // Update XP berdasarkan skor
+        if (typeof updateXPDariKuis === "function") {
+          updateXPDariKuis(skor);
+        }
+      }
+
+      function jawab(soalKe, benar, pesanBenar) {
+        jawabanBenar[soalKe - 1] = benar;
+        localStorage.setItem("jawabanKuis", JSON.stringify(jawabanBenar));
+
+        let hasilElement = document.getElementById(`hasil${soalKe}`);
+        if (benar) {
+          hasilElement.innerHTML = "✅ Benar! +10 XP";
+          hasilElement.classList.add("hasil-benar");
+          hasilElement.classList.remove("hasil-salah");
+          if (typeof tambahXP === "function") tambahXP(10);
+        } else {
+          hasilElement.innerHTML = `❌ Salah! ${pesanBenar}`;
+          hasilElement.classList.add("hasil-salah");
+          hasilElement.classList.remove("hasil-benar");
+        }
+        updateSkor();
+      }
+
+      function resetKuis() {
+        jawabanBenar = [false, false, false, false, false];
+        localStorage.setItem("jawabanKuis", JSON.stringify(jawabanBenar));
+        for (let i = 1; i <= 5; i++) {
+          let el = document.getElementById(`hasil${i}`);
+          if (el) el.innerHTML = "";
+        }
+        updateSkor();
+        alert("Kuis telah direset!");
+      }
+
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("sidebarOverlay");
+        const burgerBtn = document.getElementById("burgerBtn");
+        sidebar.classList.toggle("active");
+        overlay.classList.toggle("active");
+        burgerBtn.classList.toggle("open");
+      }
+
+      function closeSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("sidebarOverlay");
+        const burgerBtn = document.getElementById("burgerBtn");
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+        burgerBtn.classList.remove("open");
+      }
+
+      function navigateTo(page) {
+        closeSidebar();
+        setTimeout(() => {
+          window.location.href = page;
+        }, 150);
+      }
+
+      function toggleDark() {
+        document.documentElement.classList.toggle("dark");
+        document.body.classList.toggle("bg-gray-100");
+        document.body.classList.toggle("dark:bg-gray-900");
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        let isLogin = localStorage.getItem("login");
+        if (!isLogin || isLogin !== "true") {
+          window.location.href = "login.html";
+        }
+        updateSkor();
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 768) {
+            closeSidebar();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

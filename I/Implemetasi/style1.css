@@ -1,0 +1,162 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.akun img{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    margin: 8vh;
+}
+.akun img:hover {
+    transform: scale(1.2);
+    filter: brightness(1.5);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+.gambar img {
+    position: absolute;
+    left: 457px;
+    padding: 5px;
+    top: 65px;
+}
+.gambar img:hover {
+    transform: translatey(60px);
+    transition: 0.3s ease;
+}
+.download img {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    margin: 8vh;
+}
+.download img:hover {
+    transform: scale(1.2);
+    filter: brightness(1.5);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+section {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #4CAF50;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    color: #333;
+}
+
+ul {
+    margin-bottom: 1rem;
+    padding-left: 1.2rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem 0;
+    border-radius: 8px;
+}
+
+/* Quiz Styles */
+.question {
+    margin-bottom: 1.5rem;
+}
+
+.question p {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.question label {
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#result {
+    background-color: #e7f3fe;
+    border-left: 6px solid #2196F3;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}

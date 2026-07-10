@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Pembelajaran Matematika</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h2>Media Ajar Matematika</h2>
+
+      <nav>
+        <ul>
+          <li class="dropdown">
+            <a href="#">Media Hitung ▼</a>
+            <ul class="dropdown-menu">
+              <li onclick="pilihMateri('pp')">Persegi Panjang</li>
+              <li onclick="pilihMateri('segitiga')">Segitiga</li>
+              <li onclick="pilihMateri('lingkaran')">Lingkaran</li>
+              <li onclick="pilihMateri('kubus')">Volume Kubus</li>
+              <li onclick="pilihMateri('keliling')">Keliling Bangun Datar</li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#">akun ▼</a>
+            <ul class="dropdown-menu">
+              <li onclick="tampilRegister()">Register</li>
+              <li onclick="tampilLogin()">Login</li>
+              <li onclick="logout()">Logout</li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container" id="container">
+      <h1>Media Pembelajaran Matematika</h1>
+
+      <label>Pilih Materi</label>
+
+      <select id="materi">
+        <option value="pp">Luas Persegi Panjang</option>
+        <option value="segitiga">Luas Segitiga</option>
+        <option value="lingkaran">Luas Lingkaran</option>
+        <option value="kubus">Volume Kubus</option>
+        <option value="keliling">Keliling Persegi</option>
+      </select>
+
+      <div class="input-box">
+        <input type="number" id="nilai1" placeholder="Nilai 1" />
+        <input type="number" id="nilai2" placeholder="Nilai 2 (opsional)" />
+      </div>
+
+      <button onclick="prosesHitung()">Hitung</button>
+
+      <h2 id="hasil"></h2>
+      <p id="pesan"></p>
+    </div>
+    <div class="auth-container">
+      <div id="registerBox">
+        <h3>Register</h3>
+        <input type="text" id="regUser" placeholder="Username" />
+        <input type="password" id="regPass" placeholder="Password" />
+        <button onclick="register()">Register</button>
+      </div>
+
+      <div id="loginBox">
+        <h3>Login</h3>
+        <input type="text" id="loginUser" placeholder="Username" />
+        <input type="password" id="loginPass" placeholder="Password" />
+        <button onclick="login()">Login</button>
+      </div>
+
+      <div id="userStatus"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

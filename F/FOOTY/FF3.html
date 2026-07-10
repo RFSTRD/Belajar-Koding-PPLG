@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final showdown</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+a {
+    color: white;
+    text-decoration: none;
+}
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    background: linear-gradient(to bottom right, darkblue, lightblue);
+}
+.menu a:hover {
+    color: #d1d5db;
+}
+.menu {
+    width: 100%;
+    text-align: center;
+}
+.menu a {
+    margin: 1%;
+}
+.btn-masuk {
+    position: relative;
+    background-color: white;
+    color: blue;
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn-mulai {
+    width: fit-content;
+    background-color: white;
+    color: hsl(240, 100%, 70%);
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-weight: bold;
+    text-decoration: none;   
+}
+.content {
+    height: 76vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 15%;
+}
+.content p{
+    background-color: #4c290a;
+    border-radius: 0 0 10px 10px;
+    padding: 1%;
+    margin: 0px;
+    border: 1px solid;
+}
+.contentt {
+    margin: 0 10px;
+}
+.content h3{
+    background-color: #4c290a;
+    border-radius: 10px 10px 0 0 ;
+    padding: 2%;
+    margin:0px;
+    border: 1px solid;
+}
+.carousel-caption {
+    animation: fadeInUp 1s ease-in-out;
+}
+@keyframes fadeInUp {
+    0% {
+    opacity: 0;
+    transform: translateY(20px);
+    }
+    100% {
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
+/* Efek Transisi Fade */
+.carousel-item {
+    transition: opacity 1.5s ease-in-out;
+}
+.carousel-item img {
+    width: 50vh;
+    height: 100vh;
+}
+/* Tombol Play/Pause */
+.control-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+}
+
+.video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.hero {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 76vh;
+    justify-content: center;
+    align-items: center;
+}
+.hero p {
+    margin: 2%;
+}
+.hero h1 {
+    margin: 2%;
+    font-size: x-large;
+    font-weight: bold;
+}
+.hero a {
+    margin: 2%;
+}
+@media screen and (max-width: 900px) {
+    footer {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    footer .positionf {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+    #logof {
+        margin: auto;
+    }
+    #kontak {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #hal1, #hal2, #hal3, #hal4 {
+        width: 50%;
+        margin: auto;
+    }
+    .positionf {
+        grid-auto-flow: row;
+        display: grid;
+        grid-template-columns: auto;
+    }
+    .btn-masuk {
+        padding: 3px 13px;
+    }
+}
+header {
+    background: linear-gradient(to right, darkblue, hsl(240, 100%, 70%));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 1px solid;
+    padding: 20px 0;
+}
+header h2 {
+    font-size: large;
+    font-weight: bold;
+    padding: 10px;
+}
+.positionf {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 20px;
+}
+footer {
+    color: white;
+    padding: 40px 24px;
+    margin-top: 10px;
+}
+footer h3 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+footer ul li {
+    margin-bottom: 8px;
+}
+footer a {
+    text-decoration: underline;
+    color: white;
+}
+footer a:hover {
+    color: #d1d5db;
+}
+footer #logof {
+    margin-top: 1rem;
+}
+footer #kontak {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+footer .contact-icons {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+}
+footer .contact-icons a:hover {
+    color: #d1d5db;
+}
+footer .footer-note {
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 16px;
+    text-align: center;
+    font-size: 0.75rem;
+    user-select: none;
+}
+.login {
+    background: linear-gradient(to bottom right, darkblue, lightblue);
+    border: 1px solid;
+    text-align: center;
+    padding: 10px 10px;
+    width: 50%;
+    margin: 10% auto;
+    border-radius: 10px;
+}
+.mail {
+    padding: 5px;
+    margin: 10px;
+}
+.key {
+    padding: 5px;
+    margin: 10px;
+}
+.mail input {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 5px;
+    width: 100%;
+}
+.key input {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 5px;
+    width: 100%;
+}
+.submit {
+    text-align: center;
+    margin-top: 5%;
+}
+.submit button {
+    border: none;
+    outline: none;
+    border-radius: 100vh;
+    padding: 5px 0;
+    width: 100%;
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo"><h1><i class="fa fa-globe"></i> Sejarah - SMKN 2 BJM</h1></div>
+    </header>
+
+    <div class="login">
+        <h4>login</h4>
+        <div class="mail">
+            <input type="email" placeholder="Email">
+        </div>
+        <div class="key">
+            <input type="password" placeholder="Password">
+        </div>
+        <div class="submit">
+            <a href="FINALFOOTER.html"><button>Masuk</button></a>
+        </div>
+    </div>
+
+    <footer id="foot">
+        <div class="positionf">
+            <div>
+                <h3 id="tentang">Tentang Muhammad Rafi Astiardi <i class="fa fa-check-circle"></i></h3>
+                <p><i class="fa fa-gamepad"></i> Muhammad Rafi Astiardi adalah siswa PPLG yang berdedikasi, berkomitmen untuk pendidikan dengan teknologi digital dan metode belajar inovatif.</p>
+                <img alt="guy" id="logof" src="https://epjj.smkn2-bjm.sch.id/pluginfile.php/1/core_admin/logocompact/300x300/1744262310/SMK2.png" style="width: 80px;" />
+            </div>
+            <div>
+                <h3>Navigasi</h3>
+                <ul>
+                    <li><a href="#">Beranda</a></li>
+                    <li><a href="#">Tentang siswa</a></li>
+                    <li><a href="#">Jadwal Pelajaran</a></li>
+                    <li><a href="#">Agenda Pembelajaran</a></li>
+                    <li><a href="#">Materi Pembelajaran</a></li>
+                    <li><a href="#">Alat &amp; Tips</a></li>
+                    <li><a href="#">Kontak</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Kontak &amp; Sosial Media</h3>
+                <ul id="kontak">
+                    <li><i class="fas fa-phone-alt"></i> <a href="tel:+6281234567890">+62 812 3456 7890</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:rafiastiardi7@gmail.com">rafiastiardi7@gmail.com</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> <span>Jl. Kayu Tangi 2</span></li>
+                    <li class="contact-icons">
+                        <a aria-label="Facebook" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a aria-label="Instagram" href="#"><i class="fab fa-instagram"></i></a>
+                        <a aria-label="Twitter" href="#"><i class="fab fa-twitter"></i></a>
+                        <a aria-label="LinkedIn" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-note">© 2025 Muhammad Rafi Astiardi - SMKN 2 BANJARMASIN . Semua hak cipta dilestarikan.</div>
+    </footer>
+</body>
+</html>

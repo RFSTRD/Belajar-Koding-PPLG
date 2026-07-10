@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menggambar 2 Dimensi</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-left">
+        <h3>MEDIA PEMBELAJARAN INTERAKTIF</h3>
+        <h1>MENGGAMBAR 2 DIMENSI</h1>
+      </div>
+      <div class="logo">ATENG<br />PINTAR</div>
+    </header>
+
+    <div class="container">
+      <div class="sidebar">
+        <button class="btn" onclick="pindahHalaman('index.html')">
+          ❓ PETUNJUK
+        </button>
+        <button class="btn">👥 KI/KD</button>
+        <button class="btn">📖 MATERI</button>
+        <button class="btn" onclick="pindahHalaman('quiz.html')">
+          📝 LATIHAN SOAL
+        </button>
+        <button class="btn highlight">EVALUASI</button>
+        <button class="btn highlight">PROFIL</button>
+      </div>
+
+      <div class="content">
+        <div class="quiz">
+          <input type="text" id="nama" placeholder="Masukkan nama" />
+          <button onclick="cekInput()">Kirim</button>
+        </div>
+
+        <div class="quiz">
+          <h3>Soal: kita belajar menggambar di dimensi berapa?</h3>
+          <input type="number" id="jawaban" />
+          <button onclick="cekJawaban()">Jawab</button>
+
+          <p id="hasil"></p>
+          <p>Skor: <span id="skor">0</span></p>
+        </div>
+
+        <button onclick="resetKuis()">Reset</button>
+      </div>
+
+      <div class="character">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png"
+          alt="teacher"
+        />
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>

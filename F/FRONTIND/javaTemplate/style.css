@@ -1,0 +1,316 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: black;
+
+  /* animasi global */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* saat halaman siap */
+body.show {
+  opacity: 1;
+}
+
+/* animasi keluar */
+body.fade-out {
+  opacity: 0;
+}
+
+/* ========== HEADER ========== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #ffffff, #0b5e7a);
+  padding: 15px 30px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.header-left h3 {
+  margin: 0;
+  color: #2c6c8a;
+  font-size: 18px;
+}
+
+.header-left h1 {
+  margin: 0;
+  color: red;
+  font-size: 28px;
+}
+
+.logo {
+  background: black;
+  color: yellow;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 10px;
+}
+
+/* ========== LAYOUT UTAMA ========== */
+.container {
+  display: flex;
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(to right, orange, #0e6b8c);
+}
+
+/* ========== SIDEBAR ========== */
+.sidebar {
+  width: 250px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex-shrink: 0;
+}
+
+.btn {
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  background: #5d7fa3;
+  color: white;
+  font-size: 16px;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #4a6a8a;
+  transform: translateX(5px);
+}
+
+.highlight {
+  background: linear-gradient(to right, #ffcc66, #ff7b00);
+  font-weight: bold;
+  text-align: center;
+}
+
+/* ========== CONTENT ========== */
+.content {
+  flex: 1;
+  text-align: center;
+  padding: 40px;
+  color: black;
+  min-width: 0; /* penting untuk flex responsif */
+}
+
+.welcome {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.box {
+  background: black;
+  color: white;
+  padding: 20px;
+  margin: 20px auto;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.quiz input {
+  height: 5vh;
+  font-size: large;
+  min-width: 200px;
+  max-width: 90%;
+}
+
+.quiz button {
+  height: 5vh;
+  margin-top: 10px;
+}
+
+/* ========== FOOTER TEXT ========== */
+.footer-text {
+  margin-top: 40px;
+}
+
+.footer-text h2 {
+  font-size: 40px;
+  margin: 0;
+}
+
+/* ========== CHARACTER ========== */
+.character {
+  width: 200px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 20px;
+  flex-shrink: 0;
+}
+
+.character img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ======================================== */
+/* ========== MEDIA QUERIES (RESPONSIF) ========== */
+/* ======================================== */
+
+/* TABLET (max-width: 992px) */
+@media (max-width: 992px) {
+  header {
+    padding: 10px 20px;
+  }
+
+  .header-left h3 {
+    font-size: 14px;
+  }
+
+  .header-left h1 {
+    font-size: 22px;
+  }
+
+  .logo {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .sidebar {
+    width: 200px;
+    padding: 15px;
+  }
+
+  .btn {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .welcome {
+    font-size: 32px;
+  }
+
+  .box {
+    width: 350px;
+  }
+
+  .character {
+    width: 150px;
+  }
+
+  .footer-text h2 {
+    font-size: 32px;
+  }
+}
+
+/* HP LANDSCAPE & TABLET KECIL (max-width: 768px) */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .btn {
+    text-align: center;
+    min-width: 120px;
+  }
+
+  .btn:hover {
+    transform: translateY(3px);
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .welcome {
+    font-size: 28px;
+  }
+
+  .box {
+    width: 90%;
+  }
+
+  .character {
+    width: 120px;
+    align-self: center;
+  }
+
+  .footer-text h2 {
+    font-size: 28px;
+  }
+}
+
+/* HP (max-width: 480px) */
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-left h3 {
+    font-size: 12px;
+  }
+
+  .header-left h1 {
+    font-size: 18px;
+  }
+
+  .logo {
+    font-size: 10px;
+    display: inline-block;
+  }
+
+  .sidebar {
+    gap: 8px;
+  }
+
+  .btn {
+    padding: 10px;
+    font-size: 12px;
+    min-width: 100px;
+  }
+
+  .welcome {
+    font-size: 22px;
+  }
+
+  .box {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .quiz input {
+    font-size: 14px;
+    height: auto;
+    padding: 8px;
+  }
+
+  .quiz button {
+    height: auto;
+    padding: 8px 15px;
+  }
+
+  .footer-text {
+    margin-top: 20px;
+  }
+
+  .footer-text h2 {
+    font-size: 24px;
+  }
+
+  .footer-text p {
+    font-size: 12px;
+  }
+
+  .character {
+    width: 100px;
+    padding: 10px;
+  }
+}

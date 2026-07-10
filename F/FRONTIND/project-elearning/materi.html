@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Materi - E-Learning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+    </script>
+    <style>
+      body {
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .glass-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.2);
+      }
+      .dark .glass-card {
+        background: rgba(30, 30, 40, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .nav-item {
+        transition: all 0.2s ease;
+        border-radius: 12px;
+        padding: 10px 15px;
+        cursor: pointer;
+      }
+      .nav-item:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateX(5px);
+      }
+      iframe {
+        border-radius: 16px;
+        transition: all 0.2s;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .app-container {
+        display: flex;
+        min-height: 100vh;
+        position: relative;
+      }
+      .sidebar {
+        min-height: 100vh;
+        height: auto;
+        transition: transform 0.3s ease-in-out;
+      }
+      .burger-btn {
+        display: none;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1001;
+        background: linear-gradient(135deg, #1e3a8a, #2563eb);
+        border: none;
+        border-radius: 12px;
+        padding: 12px;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+      .burger-icon {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 5px 0;
+        transition: 0.3s;
+        border-radius: 3px;
+      }
+      .burger-btn.open .burger-icon:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+      .burger-btn.open .burger-icon:nth-child(2) {
+        opacity: 0;
+      }
+      .burger-btn.open .burger-icon:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+      }
+      .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        backdrop-filter: blur(3px);
+      }
+      .sidebar-overlay.active {
+        display: block;
+      }
+      @media (max-width: 768px) {
+        .burger-btn {
+          display: block;
+        }
+        .sidebar {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 1000;
+          transform: translateX(-100%);
+          width: 280px;
+        }
+        .sidebar.active {
+          transform: translateX(0);
+        }
+        main {
+          padding-top: 70px;
+        }
+      }
+      @media (min-width: 769px) {
+        .sidebar {
+          transform: translateX(0) !important;
+          position: relative;
+        }
+        .burger-btn {
+          display: none;
+        }
+        .sidebar-overlay {
+          display: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300"
+  >
+    <button class="burger-btn" id="burgerBtn" onclick="toggleSidebar()">
+      <div class="burger-icon"></div>
+      <div class="burger-icon"></div>
+      <div class="burger-icon"></div>
+    </button>
+
+    <div
+      class="sidebar-overlay"
+      id="sidebarOverlay"
+      onclick="closeSidebar()"
+    ></div>
+
+    <div class="app-container flex flex-col md:flex-row">
+      <aside
+        class="sidebar w-full md:w-72 bg-gradient-to-b from-blue-900 to-blue-800 text-white p-6 shadow-2xl"
+        id="sidebar"
+      >
+        <div class="flex justify-between items-center mb-8 md:block">
+          <h1 class="text-3xl font-extrabold tracking-tight">E-Learning</h1>
+        </div>
+        <ul class="space-y-3">
+          <li class="nav-item" onclick="navigateTo('index.html')">
+            <a href="index.html" class="block">Dashboard</a>
+          </li>
+          <li class="nav-item" onclick="navigateTo('materi.html')">
+            <a href="materi.html" class="block">Materi</a>
+          </li>
+          <li class="nav-item" onclick="navigateTo('kuis.html')">
+            <a href="kuis.html" class="block">Kuis</a>
+          </li>
+          <li class="nav-item" onclick="navigateTo('kuis.html')">
+            <a href="profil.html" class="block">Portfolio</a>
+          </li>
+        </ul>
+        <button
+          onclick="toggleDark()"
+          class="mt-8 w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm px-4 py-2 rounded-xl transition"
+        >
+          Dark Mode
+        </button>
+      </aside>
+
+      <main class="flex-1 p-8">
+        <h1
+          class="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-700 to-purple-600 bg-clip-text text-transparent"
+        >
+          Materi Pembelajaran
+        </h1>
+
+        <!-- 5 MATERI VIDEO -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="glass-card rounded-2xl p-5 text-black dark:text-white">
+            <h3 class="text-xl font-bold mb-3">
+              1. Algoritma & Pemrograman Dasar
+            </h3>
+            <iframe
+              class="w-full rounded-xl"
+              height="220"
+              src="https://www.youtube.com/embed/8hly31xKli0"
+              allowfullscreen
+            ></iframe>
+            <button
+              onclick="tambahProgressDanXP()"
+              class="mt-3 bg-green-500 text-white px-4 py-2 rounded-lg text-sm w-full"
+            >
+              Tandai Selesai (+10% progress, +30 XP)
+            </button>
+          </div>
+
+          <div class="glass-card rounded-2xl p-5 text-black dark:text-white">
+            <h3 class="text-xl font-bold mb-3">2. HTML Dasar untuk Pemula</h3>
+            <iframe
+              class="w-full rounded-xl"
+              height="220"
+              src="https://www.youtube.com/embed/pQN-pnXPaVg"
+              allowfullscreen
+            ></iframe>
+            <button
+              onclick="tambahProgressDanXP()"
+              class="mt-3 bg-green-500 text-white px-4 py-2 rounded-lg text-sm w-full"
+            >
+              Tandai Selesai (+10% progress, +30 XP)
+            </button>
+          </div>
+
+          <div class="glass-card rounded-2xl p-5 text-black dark:text-white">
+            <h3 class="text-xl font-bold mb-3">3. CSS Flexbox & Grid</h3>
+            <iframe
+              class="w-full rounded-xl"
+              height="220"
+              src="https://www.youtube.com/embed/3YW65K6LcIA"
+              allowfullscreen
+            ></iframe>
+            <button
+              onclick="tambahProgressDanXP()"
+              class="mt-3 bg-green-500 text-white px-4 py-2 rounded-lg text-sm w-full"
+            >
+              Tandai Selesai (+10% progress, +30 XP)
+            </button>
+          </div>
+
+          <div class="glass-card rounded-2xl p-5 text-black dark:text-white">
+            <h3 class="text-xl font-bold mb-3">4. JavaScript Dasar</h3>
+            <iframe
+              class="w-full rounded-xl"
+              height="220"
+              src="https://www.youtube.com/embed/W6NZfCO5SIk"
+              allowfullscreen
+            ></iframe>
+            <button
+              onclick="tambahProgressDanXP()"
+              class="mt-3 bg-green-500 text-white px-4 py-2 rounded-lg text-sm w-full"
+            >
+              Tandai Selesai (+10% progress, +30 XP)
+            </button>
+          </div>
+
+          <div class="glass-card rounded-2xl p-5 text-black dark:text-white">
+            <h3 class="text-xl font-bold mb-3">
+              5. Tailwind CSS - Cepat & Modern
+            </h3>
+            <iframe
+              class="w-full rounded-xl"
+              height="220"
+              src="https://www.youtube.com/embed/UBOj6rSyR4o"
+              allowfullscreen
+            ></iframe>
+            <button
+              onclick="tambahProgressDanXP()"
+              class="mt-3 bg-green-500 text-white px-4 py-2 rounded-lg text-sm w-full"
+            >
+              Tandai Selesai (+10% progress, +30 XP)
+            </button>
+          </div>
+        </div>
+
+        <!-- MATERI DARI API DUMMYJSON -->
+        <h2 class="text-2xl font-bold mt-10 mb-4">
+          Materi Rekomendasi (Live dari API)
+        </h2>
+        <div
+          id="materi-api-container"
+          class="grid grid-cols-1 lg:grid-cols-3 gap-6"
+        >
+          <div class="glass-card rounded-2xl p-5 text-center">
+            <p>Memuat data dari server...</p>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("sidebarOverlay");
+        const burgerBtn = document.getElementById("burgerBtn");
+        sidebar.classList.toggle("active");
+        overlay.classList.toggle("active");
+        burgerBtn.classList.toggle("open");
+        if (sidebar.classList.contains("active")) {
+          document.body.style.overflow = "hidden";
+        } else {
+          document.body.style.overflow = "";
+        }
+      }
+
+      function closeSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("sidebarOverlay");
+        const burgerBtn = document.getElementById("burgerBtn");
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+        burgerBtn.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      function navigateTo(page) {
+        closeSidebar();
+        setTimeout(() => {
+          window.location.href = page;
+        }, 150);
+      }
+
+      function toggleDark() {
+        document.documentElement.classList.toggle("dark");
+        document.body.classList.toggle("bg-gray-100");
+        document.body.classList.toggle("dark:bg-gray-900");
+      }
+
+      function tambahProgressDanXP() {
+        if (typeof tambahProgress === "function") tambahProgress();
+        if (typeof tambahXP === "function") tambahXP(30);
+        alert("✅ Materi selesai! Progress +10%, XP +30!");
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        let isLogin = localStorage.getItem("login");
+        if (!isLogin || isLogin !== "true") {
+          window.location.href = "login.html";
+        }
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 768) {
+            closeSidebar();
+          }
+        });
+        if (typeof fetchMateriDariAPI === "function") {
+          fetchMateriDariAPI();
+        }
+      });
+    </script>
+  </body>
+</html>

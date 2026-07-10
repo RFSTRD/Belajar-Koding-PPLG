@@ -1,0 +1,114 @@
+a {
+    color: white;
+    text-decoration: none;
+}
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #3F0110;
+    color: white;
+    animation-name: ronaldo;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+header {
+    background-color: #4c290a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 1px solid;
+    padding-bottom: 20px;
+}
+.menu {
+    width: 100%;
+    text-align: center;
+}
+.menu a {
+    margin: 1%;
+}
+.btn-masuk {
+    position: relative;
+    background-color: white;
+    color: #5C4033;
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.hero {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 76vh;
+    justify-content: center;
+    align-items: center;
+}
+.hero p {
+    margin: 2%;
+}
+.hero h1 {
+    margin: 2%;
+}
+.hero a {
+    margin: 2%;
+}
+.btn-mulai {
+    width: fit-content;
+    background-color: white;
+    animation-name: messi;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-weight: bold;
+    text-decoration: none;   
+}
+.content {
+    height: 76vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 15%;
+}
+.content p{
+    background-color: #4c290a;
+    border-radius: 0 0 10px 10px;
+    padding: 1%;
+    margin: 0px;
+    border: 1px solid;
+}
+.contentt {
+    margin: 0 10px;
+}
+.content h3{
+    background-color: #4c290a;
+    border-radius: 10px 10px 0 0 ;
+    padding: 2%;
+    margin:0px;
+    border: 1px solid;
+}
+footer {
+    text-align: center;
+    background-color: #4c290a;
+    color: white;
+    margin:1px ;
+    padding:1px ;
+}
+@keyframes ronaldo {
+    0% {background-color: #3F0110;}
+
+    50% {background-color: #5B1F07;}
+
+    100% {background-color: #3F0110;}
+}
+@keyframes messi {
+    0% {color: #3F0110;}
+
+    50% {color: #5B1F07;}
+
+    100% {color: #3F0110;}
+}

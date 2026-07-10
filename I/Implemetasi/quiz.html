@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Kerajaan Singasari</title>
+    <link rel="stylesheet" href="style1.css">
+    <script>
+        function calculateScore() {
+            const correctAnswers = ["A", "C", "B", "D", "E", "A", "C", "B", "D", "E"];
+            let score = 0;
+
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="question${i}"]:checked`);
+                if (selected && selected.value === correctAnswers[i - 1]) {
+                    score++;
+                }
+            }
+
+            document.getElementById("score").textContent = `Nilai Anda: ${score * 10}`;
+            document.getElementById("result").style.display = "block";
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Quiz: Kerajaan Singasari</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="materi.html">Materi</a></li>
+                <li><a href="video.html">Video</a></li>
+                <li><a href="capaian.html">Capaian dan Tujuan</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Jawab Pertanyaan Berikut:</h2>
+            <form id="quizForm">
+                <!-- Pertanyaan 1 -->
+                <div class="question">
+                    <p>1. Siapakah pendiri Kerajaan Singasari?</p>
+                    <label><input type="radio" name="question1" value="A"> A. Ken Arok</label><br>
+                    <label><input type="radio" name="question1" value="B"> B. Tunggul Ametung</label><br>
+                    <label><input type="radio" name="question1" value="C"> C. Kertanegara</label><br>
+                    <label><input type="radio" name="question1" value="D"> D. Raden Wijaya</label><br>
+                    <label><input type="radio" name="question1" value="E"> E. Hayam Wuruk</label><br>
+                </div>
+
+                <!-- Pertanyaan 2 -->
+                <div class="question">
+                    <p>2. Tahun berapa Kerajaan Singasari didirikan?</p>
+                    <label><input type="radio" name="question2" value="A"> A. 1294</label><br>
+                    <label><input type="radio" name="question2" value="B"> B. 1253</label><br>
+                    <label><input type="radio" name="question2" value="C"> C. 1222</label><br>
+                    <label><input type="radio" name="question2" value="D"> D. 1200</label><br>
+                    <label><input type="radio" name="question2" value="E"> E. 1189</label><br>
+                </div>
+
+                <!-- Pertanyaan 3 -->
+                <div class="question">
+                    <p>3. Apa nama ibu kota Kerajaan Singasari?</p>
+                    <label><input type="radio" name="question3" value="A"> A. Kediri</label><br>
+                    <label><input type="radio" name="question3" value="B"> B. Tumapel</label><br>
+                    <label><input type="radio" name="question3" value="C"> C. Majapahit</label><br>
+                    <label><input type="radio" name="question3" value="D"> D. Malang</label><br>
+                    <label><input type="radio" name="question3" value="E"> E. Daha</label><br>
+                </div>
+
+                <!-- Pertanyaan 4 -->
+                <div class="question">
+                    <p>4. Siapakah raja terakhir Kerajaan Singasari?</p>
+                    <label><input type="radio" name="question4" value="A"> A. Ken Arok</label><br>
+                    <label><input type="radio" name="question4" value="B"> B. Anusapati</label><br>
+                    <label><input type="radio" name="question4" value="C"> C. Tohjaya</label><br>
+                    <label><input type="radio" name="question4" value="D"> D. Kertanegara</label><br>
+                    <label><input type="radio" name="question4" value="E"> E. Raden Wijaya</label><br>
+                </div>
+
+                <!-- Pertanyaan 5 -->
+                <div class="question">
+                    <p>5. Apa nama ekspedisi terkenal yang dilakukan Kertanegara?</p>
+                    <label><input type="radio" name="question5" value="A"> A. Palapa</label><br>
+                    <label><input type="radio" name="question5" value="B"> B. Dwipantara</label><br>
+                    <label><input type="radio" name="question5" value="C"> C. Garuda</label><br>
+                    <label><input type="radio" name="question5" value="D"> D. Nusantara</label><br>
+                    <label><input type="radio" name="question5" value="E"> E. Pamalayu</label><br>
+                </div>
+
+                <!-- Pertanyaan 6 -->
+                <div class="question">
+                    <p>6. Siapakah yang membunuh Tunggul Ametung?</p>
+                    <label><input type="radio" name="question6" value="A"> A. Ken Arok</label><br>
+                    <label><input type="radio" name="question6" value="B"> B. Kebo Ijo</label><br>
+                    <label><input type="radio" name="question6" value="C"> C. Kertanegara</label><br>
+                    <label><input type="radio" name="question6" value="D"> D. Anusapati</label><br>
+                    <label><input type="radio" name="question6" value="E"> E. Tohjaya</label><br>
+                </div>
+
+                <!-- Pertanyaan 7 -->
+                <div class="question">
+                    <p>7. Apa penyebab runtuhnya Kerajaan Singasari?</p>
+                    <label><input type="radio" name="question7" value="A"> A. Serangan Kediri</label><br>
+                    <label><input type="radio" name="question7" value="B"> B. Perebutan Kekuasaan</label><br>
+                    <label><input type="radio" name="question7" value="C"> C. Serangan Mongol</label><br>
+                    <label><input type="radio" name="question7" value="D"> D. Kudeta Internal</label><br>
+                    <label><input type="radio" name="question7" value="E"> E. Invasi Majapahit</label><br>
+                </div>
+
+                <!-- Pertanyaan 8 -->
+                <div class="question">
+                    <p>8. Apa gelar Kertanegara?</p>
+                    <label><input type="radio" name="question8" value="A"> A. Raja Tumapel</label><br>
+                    <label><input type="radio" name="question8" value="B"> B. Maharaja Agung</label><br>
+                    <label><input type="radio" name="question8" value="C"> C. Sri Maharaja</label><br>
+                    <label><input type="radio" name="question8" value="D"> D. Prabu Brawijaya</label><br>
+                    <label><input type="radio" name="question8" value="E"> E. Raja Nusantara</label><br>
+                </div>
+
+                <!-- Pertanyaan 9 -->
+                <div class="question">
+                    <p>9. Apa agama resmi Kerajaan Singasari?</p>
+                    <label><input type="radio" name="question9" value="A"> A. Hindu</label><br>
+                    <label><input type="radio" name="question9" value="B"> B. Buddha</label><br>
+                    <label><input type="radio" name="question9" value="C"> C. Hindu-Buddha</label><br>
+                    <label><input type="radio" name="question9" value="D"> D. Islam</label><br>
+                    <label><input type="radio" name="question9" value="E"> E. Animisme</label><br>
+                </div>
+
+                <!-- Pertanyaan 10 -->
+                <div class="question">
+                    <p>10. Siapa yang mengalahkan Kerajaan Singasari?</p>
+                    <label><input type="radio" name="question10" value="A"> A. Majapahit</label><br>
+                    <label><input type="radio" name="question10" value="B"> B. Kediri</label><br>
+                    <label><input type="radio" name="question10" value="C"> C. Mongol</label><br>
+                    <label><input type="radio" name="question10" value="D"> D. Pajajaran</label><br>
+                    <label><input type="radio" name="question10" value="E"> E. Sunda</label><br>
+                </div>
+
+                <button type="button" onclick="calculateScore()">Submit</button>
+            </form>
+            <div id="result" style="display: none; margin-top: 20px;">
+                <h3 id="score"></h3>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Media Pembelajaran Kerajaan Singasari</p>
+    </footer>
+</body>
+</html>
