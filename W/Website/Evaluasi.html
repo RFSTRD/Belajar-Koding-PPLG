@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluasi</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            min-height: 100vh;
+            font-family: "Poppins", sans-serif;
+            background-color: white;
+        }
+        nav {
+            background: linear-gradient(to right, darkblue, blue);
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+        nav ul {
+            width: 100%;
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        nav li {
+            height: 50px;
+        }
+        nav a {
+            height: 100%;
+            padding: 0 10px;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: darkblue;
+        }
+        nav li:first-child {
+            margin-right: auto;
+        }
+        nav i:first-child {
+            margin-inline: 5px;
+        }
+        nav li:nth-child(2) {
+            display: none;
+        }
+        @media screen and (max-width:691px) {
+            nav ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            nav li:not(:first-child):not(:nth-child(2)) {
+                width: 100%;
+                opacity: 0;
+                max-height: 0;
+                overflow: hidden;
+            }
+            nav li:nth-child(2) {
+                display: block;
+                right: 0;
+                top: 0;
+                position: fixed;
+                background-color: transparent;
+                backdrop-filter: blur(10px);
+                border: 2px solid rgba(0, 0, 0, 0.2);
+                border-radius: 10px;
+                height: 45px;
+            }
+            nav li:not(:first-child):not(:nth-child(2)).show {
+                opacity: 1;
+                max-height: inherit;
+            }
+            nav a:active {
+                background-color: blue;
+            }
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1%;
+            background: linear-gradient(to top right, darkblue, blue);
+            color: white;
+            border-radius: 10px;
+            margin: 5% 10%;
+        }
+        .content h2 {
+            margin-bottom: 10px;
+        }
+        .question p {
+            font-weight: bolder;
+        }
+        .question {
+            margin-top: 1%;
+            margin-bottom: 1%;
+        }
+        label {
+            font-size: x-small;
+        }
+        footer {
+            background: linear-gradient(to top, darkblue, transparent);
+            color: white;
+            position: fixed;
+            bottom: 0;
+            padding: 1%;
+            width: 100%;
+            text-align: center;
+        }
+        footer p {
+            font-style: oblique;
+        }
+        button {
+            margin-top: 10px;
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="1.html"><i class="fa fa-globe"></i>SEJARAH KERAJAAN SINGASARI</a></li>
+            <li onclick="buka()"><a href="#"><h1><i class="fa fa-bars"></i></h1></a></li>
+            <li><a href="Capaian.html">Capaian</a></li>
+            <li><a href="Tujuan.html">Tujuan</a></li>
+            <li><a href="Materi.html">Materi</a></li>
+            <li><a href="Video.html">Video</a></li>
+            <li><a href="Evaluasi.html">Evaluasi</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h2>Evaluasi</h2>
+        <form>
+            <div class="question">
+                <p>1. Siapakah pendiri Kerajaan Singasari?</p>
+                <label><input type="radio" name="question1" value="A"> A. KEN AROK</label><br>
+                <label><input type="radio" name="question1" value="B"> B. KERTANEGARA</label><br>
+                <label><input type="radio" name="question1" value="C"> C. AIRLANGGA</label><br>
+                <label><input type="radio" name="question1" value="D"> D. JAYABAYA</label><br>
+                <label><input type="radio" name="question1" value="E"> E. MAHISA WAKA</label><br>
+            </div>                
+            <div class="question">
+                <p>2. Perang Ganter yang terjadi pada tahun 1222 menyebabkan...</p>
+                <label><input type="radio" name="question2" value="A"> A. KERUNTUHAN KERAJAAN MAJAPAHIT</label><br>
+                <label><input type="radio" name="question2" value="B"> B. KEKALAHAN KERTAJAYA DAN BERAKHIRNYA KERAJAAN KEDIRI</label><br>
+                <label><input type="radio" name="question2" value="C"> C. KEMATIAN KEN AROK</label><br>
+                <label><input type="radio" name="question2" value="D"> D. BERDIRINYA KERAJAAN KEDIRI</label><br>
+                <label><input type="radio" name="question2" value="E"> E. EKSPEDISI PAMALAYU KE SUMATRA </label><br>
+            </div>
+            <div class="question">
+                <p>3. Apa nama ekspedisi militer yang dilakukan oleh kertanegara ke sumatra pada tahun 1275?</p>
+                <label><input type="radio" name="question3" value="A"> A. EKSPEDISI PAMALAYU</label><br>
+                <label><input type="radio" name="question3" value="B"> B. EKSPEDISI MONGOL</label><br>
+                <label><input type="radio" name="question3" value="C"> C. EKSPEDISI KEDIRI</label><br>
+                <label><input type="radio" name="question3" value="D"> D. EKSPEDISI BALI</label><br>
+                <label><input type="radio" name="question3" value="E"> E. EKSPEDISI TUMAPEL </label><br>
+            </div>
+            <div class="question">
+                <p>4. Ekspedisi pamalayu bertujuan untuk...</p>
+                <label><input type="radio" name="question4" value="A"> A. MENAKLUKKAN BALI</label><br>
+                <label><input type="radio" name="question4" value="B"> B. MELAWAN INVASI MONGOL</label><br>
+                <label><input type="radio" name="question4" value="C"> C. MEMBENTENGI NUSANTARA DARI ANCAMAN MONGOL</label><br>
+                <label><input type="radio" name="question4" value="D"> D. MENGUASAI SELURUH JAWA</label><br>
+                <label><input type="radio" name="question4" value="E"> E. MENAKLUKKAN KEDIRI</label><br>
+            </div>
+            <div class="question">
+                <p>5. Pada tahun 1289, kaisar kubilai khan mengirim utusan ke singasari untuk...</p>
+                <label><input type="radio" name="question5" value="A"> A. MEMINTA SINGASARI MENGAKUI KEDAULATAN MONGOL</label><br>
+                <label><input type="radio" name="question5" value="B"> B. MENGIRIM PASUKAN BANTUAN</label><br>
+                <label><input type="radio" name="question5" value="C"> C. MENAKLUKKAN BALI</label><br>
+                <label><input type="radio" name="question5" value="D"> D. MENJALIN PERSAHABATAN DENGAN KERTANEGARA</label><br>
+                <label><input type="radio" name="question5" value="E"> E. MENYERANG SINGASARI</label><br>
+            </div>
+            <div class="question">
+                <p>6. Apa yang dilakukan kertanegara ketika utusan dari mongol datang pada tahun 1289?</p>
+                <label><input type="radio" name="question6" value="A"> A. MENERIMA DENGAN BAIK</label><br>
+                <label><input type="radio" name="question6" value="B"> B. MENYERANG PASUKAN MONGOL</label><br>
+                <label><input type="radio" name="question6" value="C"> C. MENOLAK DENGAN TEGAS DAN MELUKAI UTUSAN</label><br>
+                <label><input type="radio" name="question6" value="D"> D. MENGIRIM UPETI KE MONGOL</label><br>
+                <label><input type="radio" name="question6" value="E"> E. MENGIRIM PASUKAN UNTUK MENYERANG MONGOL</label><br>
+            </div>
+            <div class="question">
+                <p>7. Siapa yang melakukan pemberontakan terhadap kertanegara pada tahun 1292?</p>
+                <label><input type="radio" name="question7" value="A"> A. KEN AROK</label><br>
+                <label><input type="radio" name="question7" value="B"> B. KERTAJAYA</label><br>
+                <label><input type="radio" name="question7" value="C"> C. KUBILAI KHAN</label><br>
+                <label><input type="radio" name="question7" value="D"> D. RADEN WIJAYA</label><br>
+                <label><input type="radio" name="question7" value="E"> E. JAYAKATWANG</label><br>
+            </div>
+            <div class="question">
+                <p>8. Apa penyebab utama kelemahan pertahanan singasari yang dimanfaatkan oleh jayakatwang?</p>
+                <label><input type="radio" name="question8" value="A"> A. KEKALAHAN DALAM PERANG MELAWAN MONGOL</label><br>
+                <label><input type="radio" name="question8" value="B"> B. KEKURANGAN PASUKAN KARENA EKSPANSI MILITER KERTANEGARA DI LUAR JAWA</label><br>
+                <label><input type="radio" name="question8" value="C"> C. EKSPANSI YANG GAGAL KE KEDIRI</label><br>
+                <label><input type="radio" name="question8" value="D"> D. PENYAKIT YANG MENYEBAR DI SINGASARI</label><br>
+                <label><input type="radio" name="question8" value="E"> E. KRISIS EKONOMI YANG MELANDA KERAJAAN</label><br>
+            </div>
+            <div class="question">
+                <p>9. Setelah jayakatwang memberontak dan menaklukkan singasari, ia...</p>
+                <label><input type="radio" name="question9" value="A"> A. MENJADI RAJA MAJAPAHIT</label><br>
+                <label><input type="radio" name="question9" value="B"> B. MENAKLUKKAN BALI DAN SUMATRA</label><br>
+                <label><input type="radio" name="question9" value="C"> C. MENDIRIKAN KEMBALI KERAJAAN KEDIRI DENGAN IBU KOTA DI DAHA</label><br>
+                <label><input type="radio" name="question9" value="D"> D. MENJADI PENGUASA MONGOL DI JAWA</label><br>
+                <label><input type="radio" name="question9" value="E"> E. MENGUSIR PASUKAN MONGOL DARI JAWA</label><br>
+            </div>
+            <div class="question">
+                <p>10. Siapa yang mendirikan kembali kerajaan majapahit setelah runtuhnya singasari?</p>
+                <label><input type="radio" name="question10" value="A"> A. KEN AROK</label><br>
+                <label><input type="radio" name="question10" value="B"> B. JAYAKATWANG</label><br>
+                <label><input type="radio" name="question10" value="C"> C. KERTAJAYA</label><br>
+                <label><input type="radio" name="question10" value="D"> D. RADEN WIJAYA</label><br>
+                <label><input type="radio" name="question10" value="E"> E. KERTANEGARA</label><br>
+            </div>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+        <div id="result" style="display: none; margin-top: 20px;">
+            <h3 id="score"></h3>
+        </div>
+    </div>
+
+    <footer>
+        <p><i class="fa fa-envelope"></i> @rafiastiardi7@gmail.com</p>
+    </footer>
+</body>
+
+<script>
+    function buka() {
+        const menuItems = document.querySelectorAll('nav li:not(:first-child):not(:nth-child(2))');
+        menuItems.forEach(item => {
+            item.classList.toggle('show');
+        })
+    }
+    function calculateScore() {
+        const correctAnswers = ["A", "B", "A", "C", "A", "C", "E", "B", "C", "D"];
+        let score = 0;
+        
+        for (let i = 1; i <= 10; i++) {
+            const selected = document.querySelector(`input[name="question${i}"]:checked`);
+            if (selected && selected.value === correctAnswers[i - 1]) {
+                score++;
+            }
+        }
+        document.getElementById("score").textContent = `Nilai Anda: ${score * 10}`;
+        document.getElementById("result").style.display = "block";
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+</script>
+</html>

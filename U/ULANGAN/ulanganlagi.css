@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: arial;
+    background-color: hsl(0, 0%, 90%);
+}
+header {
+    background: linear-gradient(to right, darkblue, blue);
+    color: white;
+    padding: 1%;
+    text-align: center;
+}
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+nav {
+    background-color: hsl(240, 100%, 17%);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+}
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+}
+.card1 {
+    background-color: white;
+    margin: 3px;
+    box-shadow: 2px 2px 2px gray;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.card2 {
+    background-color: white;
+    margin: 3px;
+    box-shadow: 2px 2px 2px gray;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.card3 {
+    background-color: white;
+    margin: 3px;
+    box-shadow: 2px 2px 2px gray;
+    border-radius: 10px;
+    cursor: pointer;
+}
+th {
+    border: 1px solid black;
+    text-align: center;
+    background-color: blue;
+    color: white;
+    padding: 5px;
+}
+td {
+    border: 1px solid;
+    text-align: center;
+    background-color: white;
+    padding: 5px;
+}
+.kiri {
+    margin: 10px;
+}
+.kanan {
+    margin: 10px;
+    background-color: white;
+    padding: 0 10px 5px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 1px gray;
+}
+footer {
+    background-color: hsl(240, 100%, 17%);
+    font-size: small;
+    color: white;
+    text-align: center;
+    padding: 1%;
+    margin-top: 10%;
+    height: fit-content;
+}

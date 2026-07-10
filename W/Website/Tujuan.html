@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tujuan</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            min-height: 100vh;
+            font-family: "Poppins", sans-serif;
+            background-color: white;
+        }
+        nav {
+            background: linear-gradient(to right, darkblue, blue);
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+        nav ul {
+            width: 100%;
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        nav li {
+            height: 50px;
+        }
+        nav a {
+            height: 100%;
+            padding: 0 10px;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: darkblue;
+        }
+        nav li:first-child {
+            margin-right: auto;
+        }
+        nav i:first-child {
+            margin-inline: 5px;
+        }
+        nav li:nth-child(2) {
+            display: none;
+        }
+        @media screen and (max-width:691px) {
+            nav ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            nav li:not(:first-child):not(:nth-child(2)) {
+                width: 100%;
+                opacity: 0;
+                max-height: 0;
+                overflow: hidden;
+            }
+            nav li:nth-child(2) {
+                display: block;
+                right: 0;
+                top: 0;
+                position: fixed;
+                background-color: transparent;
+                backdrop-filter: blur(10px);
+                border: 2px solid rgba(0, 0, 0, 0.2);
+                border-radius: 10px;
+                height: 45px;
+            }
+            nav li:not(:first-child):not(:nth-child(2)).show {
+                opacity: 1;
+                max-height: inherit;
+            }
+            nav a:active {
+                background-color: blue;
+            }
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4% 6%;
+            background: linear-gradient(to top right, darkblue, blue);
+            color: white;
+            border-radius: 10px;
+            margin: 4%;
+        }
+        .content h2 {
+            margin-bottom: 1%;
+        }
+        .content li {
+            margin-top: 1%;
+            margin-bottom: 1%;
+        }
+        footer {
+            background: linear-gradient(to top, darkblue, transparent);
+            color: white;
+            position: fixed;
+            bottom: 0;
+            padding: 1%;
+            width: 100%;
+            text-align: center;
+        }
+        footer p {
+            font-style: oblique;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="1.html"><i class="fa fa-globe"></i>SEJARAH KERAJAAN SINGASARI</a></li>
+            <li onclick="buka()"><a href="#"><h1><i class="fa fa-bars"></i></h1></a></li>
+            <li><a href="Capaian.html">Capaian</a></li>
+            <li><a href="Tujuan.html">Tujuan</a></li>
+            <li><a href="Materi.html">Materi</a></li>
+            <li><a href="Video.html">Video</a></li>
+            <li><a href="Evaluasi.html">Evaluasi</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h2>Tujuan</h2>
+        <p><ul>
+            <li><b>Memahami Sejarah dan Latar Belakang Kerajaan Singasari:</b> Mengidentifikasi pendirian Kerajaan Singasari (atau Tumapel) oleh Ken Arok dan latar belakang politik di Jawa pada masa itu. Menjelaskan hubungan antara Kerajaan Singasari dan kerajaan-kerajaan lainnya, seperti Kediri, Jenggala, dan Majapahit.</li>
+
+            <li><b>Menganalisis Kebijakan Ekspansi dan Politik Luar Negeri Kertanegara:</b> Memahami peran Kertanegara sebagai raja terakhir Singasari dan kebijakannya yang proaktif dalam ekspansi ke luar Jawa, seperti Ekspedisi Pamalayu. Menjelaskan penolakan Singasari terhadap utusan Mongol yang dikirim oleh Kaisar Kubilai Khan, serta dampaknya terhadap politik internasional.</li>
+
+            <li><b>Mengidentifikasi Faktor-Faktor yang Berkontribusi terhadap Kejatuhan Singasari:</b> Menganalisis penyebab utama pemberontakan Jayakatwang dan bagaimana fokus Singasari pada ekspansi luar negeri melemahkan pertahanan internal kerajaan. Menguraikan peristiwa runtuhnya Kerajaan Singasari dan pengalihan kekuasaan ke Jayakatwang yang mendirikan kembali Kerajaan Kediri.</li>
+
+            <li>siswa diharapkan dapat menganalisis  Kerajaan  Singasari dari segi perkembangan politik dan pemerintahan, ekonomi, sosial & budaya, agama  dengan benar.</li>
+        </ul></p>
+    </div>
+
+    <footer>
+        <p><i class="fa fa-envelope"></i> @rafiastiardi7@gmail.com</p>
+    </footer>
+</body>
+
+<script>
+    function buka() {
+        const menuItems = document.querySelectorAll('nav li:not(:first-child):not(:nth-child(2))');
+        menuItems.forEach(item => {
+            item.classList.toggle('show');
+        })
+    }
+</script>
+</html>
