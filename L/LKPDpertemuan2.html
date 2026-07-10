@@ -1,0 +1,177 @@
+ <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Halaman Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header, footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header h2 {
+            margin: 5px 0;
+            font-weight: normal;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 45%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .image-container div {
+            width: 30%;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .video-container div {
+            width: 45%;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Judul Halaman Web</h1>
+        <h2>Subjudul Halaman Web</h2>
+    </header>
+
+    <div class="content">
+        <table>
+            <caption><strong>Tabel 1: Data Pengguna</strong></caption>
+            <tr>
+                <th>Nama</th>
+                <th>Umur</th>
+                <th>Kota</th>
+            </tr>
+            <tr>
+                <td>Andi</td>
+                <td>25</td>
+                <td>Jakarta</td>
+            </tr>
+            <tr>
+                <td>Budi</td>
+                <td>30</td>
+                <td>Bandung</td>
+            </tr>
+            <tr>
+                <td>Citra</td>
+                <td>22</td>
+                <td>Surabaya</td>
+            </tr>
+        </table>
+
+        <table>
+            <caption><strong>Tabel 2: Data Produk</strong></caption>
+            <tr>
+                <th>Produk</th>
+                <th>Harga</th>
+                <th>Stok</th>
+            </tr>
+            <tr>
+                <td>Produk A</td>
+                <td>Rp100.000</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Produk B</td>
+                <td>Rp150.000</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td>Produk C</td>
+                <td>Rp200.000</td>
+                <td>20</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="image-container">
+        <div>
+            <h3>Produk A: Makanan</h3>
+            <img src="https://via.placeholder.com/300x200?text=Produk+A" alt="Produk A: Makanan">
+        </div>
+        <div>
+            <h3>Produk B: Minuman</h3>
+            <img src="https://via.placeholder.com/300x200?text=Produk+B" alt="Produk B: Minuman">
+        </div>
+        <div>
+            <h3>Produk C: Sembako</h3>
+            <img src="https://via.placeholder.com/300x200?text=Produk+C" alt="Produk C: Sembako">
+        </div>
+    </div>
+
+    <div class="video-container">
+        <div>
+            <h3>Video 1: Penjelasan Produk A</h3>
+            <video controls>
+                <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+                Browser Anda tidak mendukung elemen video.
+            </video>
+        </div>
+        <div>
+            <h3>Video 2: Penjelasan Produk B</h3>
+            <video controls>
+                <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+                Browser Anda tidak mendukung elemen video.
+            </video>
+        </div>
+    </div>
+
+    <footer>
+        <p>Alamat: Jl. Contoh Alamat No. 123, Kota Contoh, Indonesia</p>
+    </footer>
+    
+</body>
+</html>

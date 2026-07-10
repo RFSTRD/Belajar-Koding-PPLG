@@ -1,0 +1,46 @@
+body { 
+    font-family: Arial;  
+    background: linear-gradient(to bottom, red, white);
+    padding: 20px; 
+    height: 92vh;
+} 
+h2 { 
+    text-align: center;
+    color: white;
+
+} 
+form { 
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 5%; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 50%; 
+    margin: auto;
+    border-radius: 10px;
+    color: white;
+} 
+label { 
+    margin-bottom: 1%; 
+    display: block; 
+}
+input[type="text"], input[type="email"], input[type="number"] { 
+    width: 95%; 
+    padding: 8px; 
+    margin-bottom: 15px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+} 
+input[type="submit"] { 
+    background-color: red; 
+    color: white; 
+    padding: 2%; 
+    width: 50%; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    margin: 5% auto auto auto;
+} 
+input[type="submit"]:hover { 
+    background-color: darkred; 
+}

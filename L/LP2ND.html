@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar dengan Dropdown</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 15px;
+            color: white;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-menu li {
+            position: relative;
+            margin: 0 15px;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #444;
+            list-style: none;
+            top: 100%;
+            left: 0;
+            width: 150px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li {
+            padding: 10px;
+        }
+
+        .search-icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .search-icon img {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+                position: absolute;
+                top: 54px;
+                right: 0;
+                background: #333;
+                width: 100%;
+                padding: 10px 0;
+                text-align: center;
+            }
+            .nav-menu li {
+                margin: 10px;
+                border: 1px solid;
+                padding: 5px;
+                border-radius: 10px;
+
+            }
+        }
+        .hamburger img {
+            top: 15px;
+            position: absolute;
+            left: 50%;
+            right: 50%;
+            width: 20px;
+            height: 20px;
+        }
+        @media screen and (min-width: 768px) {
+            .hamburger {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">LOGO</div>
+        <div class="hamburger">
+             <img src="Menu-Logo.png" alt="menu" >
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#">Home</a></li>
+            <li class="dropdown">
+                <a href="#">Materi</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">HTML</a></li>
+                    <li><a href="#">CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Latihan</a></li>
+            <li><a href="#">Kontak</a></li>
+        </ul>
+        <div class="search-icon"><img src="Search-Logo.png" alt="search"></div>
+    </nav>
+</body>
+</html>

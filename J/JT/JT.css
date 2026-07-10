@@ -1,0 +1,37 @@
+body {
+    font-family: arial;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 97vh;
+
+}
+table {
+    width: fit-content;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+th, td {
+    padding: 12px;
+    border: 2px solid white;
+    color: white;
+    text-align: center;
+}
+th {
+    background-color: green;
+    color: white;
+}
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #45a049;
+}

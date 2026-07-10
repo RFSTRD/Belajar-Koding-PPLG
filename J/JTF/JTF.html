@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Media Pembelajaran</title>
+  <link rel="stylesheet" href="JTF.css">
+</head>
+<body>
+  <h1>Input Materi</h1>
+  <form id="materiForm">
+    <label>Nama Materi:</label>
+    <input type="text" id="nama" required><br>
+    <label>Kategori:</label>
+    <input type="text" id="kategori" required><br>
+    <label>Tingkat Kesulitan:</label>
+    <select id="tingkat">
+      <option value="Mudah">Mudah</option>
+      <option value="Sedang">Sedang</option>
+      <option value="Sulit">Sulit</option>
+    </select><br>
+    <button type="submit">Tambah</button>
+  </form>
+
+  <input type="text" id="search" placeholder="Cari Nama Materi...">
+
+  <table id="materiTable">
+    <thead>
+      <tr>
+        <th>Nama Materi</th>
+        <th>Kategori</th>
+        <th>Tingkat</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="JTF.js"></script>
+</body>
+</html>
